@@ -1,0 +1,10 @@
+Analysis,Result
+"Interaction test (p-value)","0.069"
+"Interaction significant?","NO"
+"Fragility Index","3 events (1.3%)"
+"Fragility assessment","EXTREMELY FRAGILE"
+"Power at HR=0.80","40.1%"
+"Adequately powered?","NO"
+"Events needed (80% power)","630"
+"Pooled HR (both groups)","0.94 (0.85-1.03)"
+"Overall benefit?","NO"
