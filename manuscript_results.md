@@ -10,9 +10,20 @@ We analyzed published summary data from two companion individual patient data (I
 
 ### Test for Interaction: The Primary Statistical Finding
 
-The formal test for statistical interaction between the EF 40-49% and EF ≥50% subgroups yielded a **p-value of 0.069** (Z-statistic = -1.819). This non-significant result indicates no statistical evidence for different treatment effects between the two ejection fraction ranges (Figure 1, Table 1).
+The formal test for statistical interaction between the EF 40-49% and EF ≥50% subgroups yielded a **p-value of 0.069** (Z-statistic = -1.819). However, with 235 events in the smaller subgroup, this test had only **46% statistical power** to detect the observed difference in log hazard ratios (0.257) as statistically significant at the conventional α=0.05 threshold.
 
-The difference in log hazard ratios was -0.257 (SE 0.141). At the conventional significance threshold of p<0.05, we cannot reject the null hypothesis that beta-blockers have equivalent effects in both EF ranges. The observed hazard ratios of 0.75 (EF 40-49%) and 0.97 (EF ≥50%) do not significantly differ from one another despite appearing numerically distinct.
+Given this limited power, we focused on the **confidence interval for the difference in treatment effects** rather than relying solely on the p-value. The difference in log hazard ratios was -0.257 (SE 0.141), yielding:
+
+**95% CI for difference in log(HR): -0.53 to +0.02**
+
+This wide confidence interval encompasses:
+- No difference between subgroups (0.00)
+- Moderate differences (e.g., -0.25)
+- Large differences (e.g., -0.53)
+
+The substantial imprecision—combined with extreme fragility (see below) and inadequate power in the EF 40-49% subgroup—indicates that **the evidence base is insufficient** to support confident subgroup inferences, let alone practice-changing guideline recommendations.
+
+Importantly, when statistical evidence is limited (whether due to non-significant testing, low power, or both), the appropriate interpretation is **uncertainty**, not confidence in subgroup-based treatment decisions. In this context, the burden of proof for altering clinical guidelines falls on those claiming a threshold effect. That burden has not been met (Figure 1, Table 1).
 
 **Table 1. Test for Interaction Between EF Subgroups**
 
@@ -29,9 +40,11 @@ The difference in log hazard ratios was -0.257 (SE 0.141). At the conventional s
 | **Interaction Test** | |
 | Difference in log(HR) | -0.2572 |
 | SE of difference | 0.1414 |
+| **95% CI for difference** | **-0.53 to +0.02** |
 | Z-statistic | -1.819 |
 | **P-value** | **0.069** |
-| **Interpretation** | **Non-significant (p ≥ 0.05)** |
+| **Power of interaction test** | **46%** |
+| **Interpretation** | **Insufficient evidence for differential effects** |
 
 ### Fragility Analysis: Extreme Statistical Instability
 
@@ -87,6 +100,45 @@ This null overall effect calls into question whether beta-blockers truly benefit
 | **Statistical power** | 40% at HR=0.80 | ❌ No (power < 80%) |
 | **Overall pooled effect** | HR 0.94 (0.85-1.03) | ❌ Not significant |
 | **Validation tests passed** | **0 / 4** | ❌ **Failed all core tests** |
+
+### Interpretation of Findings: What Can and Cannot Be Concluded
+
+Our analyses address a specific, focused question: Is there sufficient statistical evidence to support a sharp treatment effect threshold at LVEF=50%? The answer is unequivocally **no**.
+
+However, our analyses cannot definitively distinguish between several possible underlying realities:
+
+**Scenario A: No benefit at any LVEF ≥40%**
+- Consistent with pooled HR=0.94 (95% CI 0.85-1.03)
+- The EF 40-49% "benefit" (HR 0.75) reflects random variation in a small, underpowered sample
+- Clinical implication: Beta-blockers may provide minimal or no benefit in contemporary post-MI patients regardless of LVEF
+
+**Scenario B: Modest benefit across all LVEF ranges**
+- True effect approximately HR 0.85-0.90 throughout the spectrum
+- EF 40-49% HR=0.75 overestimates due to small sample size and chance
+- EF ≥50% HR=0.97 slightly underestimates due to sampling variability
+- Clinical implication: Beta-blockers help modestly at all LVEF levels; stratification by EF is inappropriate
+
+**Scenario C: Benefit declines gradually (not sharply) with increasing LVEF**
+- Treatment effect strongest at lower LVEF values
+- Effect magnitude declines smoothly as LVEF increases
+- No discontinuity at any specific EF percentage point
+- Clinical implication: Consider LVEF as one continuous risk factor among many; avoid dichotomous decision rules
+
+Distinguishing definitively between Scenarios A, B, and C would require individual patient data analyzed with continuous LVEF modeling (e.g., restricted cubic splines), which we do not have access to.
+
+**What we CAN conclude with confidence:**
+
+1. **The evidence does NOT support a sharp threshold at LVEF=50%** as a binary treatment decision rule (treat if <50%, withhold if ≥50%)
+
+2. The non-significant interaction test (p=0.069, with only 46% power), extreme fragility (FI=3 events, 1.3% of total), and severe underpowering (40% power at HR 0.80) all indicate the claimed threshold is **statistically unreliable**
+
+3. The wide confidence interval for the difference in effects (-0.53 to +0.02) reflects **insufficient precision** to support confident subgroup inferences
+
+4. The overall pooled effect (HR 0.94, 95% CI 0.85-1.03) suggests **at most modest benefit** across the entire LVEF spectrum from 40% onward, with the possibility of no benefit at all
+
+**Clinical recommendation:**
+
+LVEF should **not** be used as a dichotomous decision rule for beta-blocker therapy after MI. Treatment decisions should be individualized, incorporating LVEF as one of multiple continuous risk factors alongside patient circumstances, contraindications, side effect profiles, preferences, and competing therapies. If beta-blockers are considered, the decision should not pivot on whether LVEF is 49% versus 51%.
 
 ---
 

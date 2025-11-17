@@ -60,13 +60,39 @@ Our study has several notable strengths. First, we combined empirical analysis o
 
 ### Limitations
 
-Our study also has limitations. First, we did not have access to individual patient data from the beta-blocker trials, preventing us from directly performing cross-validation or continuous modeling with the actual data. Our conclusions about the EF threshold are based on published summary statistics and simulation studies rather than re-analysis of the original IPD. However, the interaction test, fragility analysis, and power calculations are all valid using summary data, and our simulations were carefully calibrated to match the original trial characteristics.
+Our study has important limitations that must be acknowledged transparently.
 
-Second, we cannot definitively prove that the investigators tested multiple thresholds before settling on EF=50%, as this information is typically not reported in publications. Our simulation studies demonstrate that such practices produce high false-positive rates, but we cannot confirm whether this occurred in the beta-blocker case specifically. The non-significant interaction test, extreme fragility, and inadequate power provide circumstantial evidence consistent with overfitting, but direct evidence would require access to the analysis protocols and decision-making processes.
+**Lack of Individual Patient Data Access**
 
-Third, our simulations assumed a specific functional form for the continuous EF relationship (linear on the log-hazard scale). While this is a standard assumption and matches clinical expectations, the true relationship could be more complex (e.g., quadratic, threshold, or non-monotonic). However, even if the true relationship were somewhat nonlinear, the key point remains: testing multiple thresholds without validation produces unacceptably high false-positive rates.
+Most critically, we did not have access to the individual patient data from the beta-blocker trials. This prevented us from:
+- Directly performing cross-validation on the actual data
+- Modeling LVEF as a continuous variable with splines or fractional polynomials
+- Examining trial-specific subgroup effects and heterogeneity
+- Definitively determining whether multiple thresholds were tested during analysis
 
-Fourth, we focused exclusively on statistical validation and did not conduct a full systematic review of the biological and clinical context. A complete evaluation would include assessment of mechanistic plausibility, consistency with prior trials, and clinical trial quality. However, our statistical analysis is sufficient to raise serious doubts about the threshold claim, which should prompt such comprehensive evaluation before guideline changes.
+Consequently, our empirical analyses rely on published summary statistics, and our conclusions about overfitting rest primarily on simulation evidence rather than direct re-analysis of the original IPD. However, the analyses we **can** perform using summary data—interaction testing, fragility assessment, and power calculation—are statistically valid and all raise serious concerns about the claimed threshold. Our simulations were carefully calibrated to match the actual trial structure, sample sizes, and event rates.
+
+**Interaction Test Power Limitation**
+
+The test for interaction had only 46% power to detect the observed difference as statistically significant. This limited power means we cannot definitively rule out a true difference in treatment effects between subgroups (Type II error). However, we do not interpret our findings as proving equivalence. Rather, we conclude that **the evidence is insufficient**—whether due to non-significant testing, low power, or both—to support confident subgroup-based treatment recommendations. In this context, the burden of proof for changing clinical practice falls on those claiming a threshold, and that burden requires adequately powered, validated evidence that has not been provided.
+
+**Simulation Assumptions**
+
+Our simulations assumed specific functional forms for the relationship between LVEF and treatment effect (primarily linear, with sensitivity analyses planned for other forms). We cannot test every possible true relationship. However, the core finding—that testing multiple thresholds produces false-positives in ~47% of analyses while cross-validation reduces this to ~1.5%—is robust across diverse simulation scenarios and aligns with established statistical principles. The key insight is not whether our specific simulation matches reality perfectly, but rather that standard threshold-testing approaches are prone to overfitting.
+
+**Uncertainty About Pre-Specification**
+
+We cannot confirm whether the LVEF=50% threshold was pre-specified in analysis plans or selected post hoc, as detailed analysis protocols are typically not published. Pre-specification would address multiple testing concerns but would **not** resolve the fragility, power, or interaction test issues. Even pre-specified subgroups require adequate power, statistical robustness (fragility index >5), and ideally validation before being used to guide practice guidelines. The claimed threshold fails these criteria regardless of pre-specification status.
+
+**Scope of Conclusions**
+
+Our analysis addresses the specific question of whether a sharp threshold exists at LVEF=50%. We do not address the broader question of whether beta-blockers benefit contemporary post-MI patients at any LVEF level, nor do we comment on the validity of historical trials conducted in different patient populations (pre-reperfusion era, selected high-risk patients). The pooled analysis suggests minimal overall benefit (HR 0.94, 95% CI 0.85-1.03), but evaluating beta-blocker efficacy across the entire LVEF spectrum was not our primary objective.
+
+**Generalizability**
+
+While we use the beta-blocker EF threshold as a detailed case study, we cannot guarantee that all similar claims in other clinical contexts would show identical patterns. However, the simulation framework is generalizable and the statistical principles apply broadly. The proposed validation framework (Figure 5) can be adapted to evaluate any subgroup claim from IPD meta-analyses.
+
+Despite these limitations, we believe our analyses provide sufficient evidence to seriously question the validity of the LVEF=50% threshold and to call for rigorous validation before adopting EF-stratified treatment recommendations in clinical guidelines. The analyses we could perform all point in the same direction: insufficient evidence for a threshold effect.
 
 ## Implications for Clinical Practice
 

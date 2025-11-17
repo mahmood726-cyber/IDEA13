@@ -60,6 +60,22 @@ $$E_{required} = 4 \times \left(\frac{Z_{\alpha/2} + Z_{\beta}}{|\log(HR)|}\righ
 
 where $Z_{\beta}$ = 0.84 for 80% power.
 
+#### Power of the Interaction Test
+
+We also calculated the statistical power of the interaction test itself—the test comparing treatment effects between the EF 40-49% and EF ≥50% subgroups. This is a critical but often-overlooked consideration: a non-significant interaction test could reflect either (a) truly equivalent effects, or (b) insufficient power to detect a difference (Type II error).
+
+The power to detect a specified difference in log hazard ratios as statistically significant is:
+
+$$\text{Power}_{\text{interaction}} = \Phi\left(\frac{|\Delta|}{SE_{\Delta}} - Z_{\alpha/2}\right)$$
+
+where $\Delta = \log(HR_1) - \log(HR_2)$ is the difference in log hazard ratios between subgroups, and:
+
+$$SE_{\Delta} = \sqrt{SE_1^2 + SE_2^2}$$
+
+For the observed difference ($\Delta$ = -0.257) with SE$_{\Delta}$ = 0.141, and $Z_{\alpha/2}$ = 1.96 for a two-sided test at α=0.05, we calculated the power to detect this difference as statistically significant.
+
+This calculation acknowledges that our interaction test has limited power, and therefore a p-value ≥0.05 should be interpreted as "insufficient evidence" rather than "proof of no difference." When evidence is limited, the burden of proof falls on those claiming a threshold effect.
+
 #### Overall Pooled Effect
 
 We combined both EF ranges (40-49% and ≥50%) in a fixed-effect meta-analysis to estimate the overall treatment effect across the entire ejection fraction spectrum from 40% to 100%. We used inverse-variance weighting:
