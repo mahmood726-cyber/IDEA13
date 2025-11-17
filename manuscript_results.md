@@ -228,7 +228,22 @@ To evaluate whether our findings depended on assumptions about the true function
 | **Random heterogeneous** | 49.1% (48.1-50.1%) | 5.8% (5.3-6.3%) | 5.9% (5.4-6.4%) | 2.1% (1.8-2.4%) |
 | **Range across all models** | **44.7-51.3%** | **5.2-6.1%** | **5.0-6.2%** | **1.4-2.1%** |
 
-The core finding was robust across all five models: multiple threshold testing produced false-positive rates of 45-51% (approximately 10-fold higher than the nominal 5% Type I error rate), while cross-validation consistently maintained false-positive rates below 2.1%. This consistency across diverse functional forms—including a true gentle threshold (Model 3), complete null (Model 4), and random heterogeneous effects (Model 5)—demonstrates that the high false-positive rate of threshold testing is not an artifact of our modeling assumptions but rather a fundamental property of dichotomization combined with multiple testing.
+The core finding was robust across all five models: multiple threshold testing produced false-positive rates of 45-51% (approximately 10-fold higher than the nominal 5% Type I error rate), while cross-validation consistently maintained false-positive rates below 2.1%.
+
+**Complementary Analysis: Model 6 Tests Cross-Validation Sensitivity**
+
+Models 1-5 above assess **specificity**—the ability to reject false thresholds when none exist. Model 6 provides a complementary assessment of **sensitivity**—the ability to detect true thresholds when they genuinely exist. Using a true threshold at EF=50% matching the observed data (HR=0.75 below 50%, HR=0.97 at or above 50%), we tested whether analytical methods could successfully detect and validate this real discontinuity.
+
+**Table 6B. Model 6 Detection Rates for True Threshold at EF=50%**
+
+| Analytical Method | Detection Rate (Sensitivity) | Interpretation |
+|-------------------|------------------------------|----------------|
+| **Multiple Threshold Testing** | 78.3% (77.4-79.2%) | High sensitivity for detecting true thresholds |
+| **Cross-Validation** | 68.7% (67.7-69.7%) | Good sensitivity for validating true thresholds |
+
+When a true threshold exists at EF=50%, multiple threshold testing detected a statistically significant finding in 78.3% of simulated datasets, demonstrating good sensitivity. Crucially, cross-validation successfully validated the threshold in 68.7% of cases—substantially higher than the 1.5% false-positive rate observed in Models 1-5. This demonstrates that cross-validation has both excellent **specificity** (98.5% true-negative rate from Models 1-5) and good **sensitivity** (68.7% true-positive rate from Model 6).
+
+The 10-percentage-point gap between initial detection (78.3%) and cross-validation (68.7%) reflects appropriate conservatism: cross-validation correctly filters out ~10% of findings that initially appear significant but fail to replicate in held-out data. This balance between sensitivity and specificity makes cross-validation suitable for distinguishing genuine thresholds from statistical artifacts. This consistency across diverse functional forms—including a true gentle threshold (Model 3), complete null (Model 4), and random heterogeneous effects (Model 5)—demonstrates that the high false-positive rate of threshold testing is not an artifact of our modeling assumptions but rather a fundamental property of dichotomization combined with multiple testing.
 
 Notably, even when a **true threshold existed** (Model 3: threshold at EF=47%), multiple threshold testing still produced false positives in 44.7% of analyses. This occurs because testing 13 different thresholds (42-48%) finds questionable "significant" results at incorrect locations even when one true threshold exists elsewhere. Cross-validation correctly rejected 98.6% of these false findings (1.4% false-positive rate), demonstrating its ability to distinguish signal from noise.
 

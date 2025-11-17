@@ -155,6 +155,12 @@ $$\log(HR(EF)) \sim \text{Uniform}(-0.357, -0.107) \text{ independently for each
 
 Heterogeneous treatment effects across trials with no systematic LVEF relationship, representing the scenario where differences across trials reflect random variation rather than a biological gradient.
 
+**Model 6: True threshold at EF=50% (matching observed data)**
+
+$$\log(HR(EF)) = \begin{cases} -0.2877 & \text{if } EF < 50\% \\ -0.0305 & \text{if } EF \geq 50\% \end{cases}$$
+
+Represents HR=0.75 below 50%, HR=0.97 at or above 50%—precisely matching the pattern observed in the empirical data from the two meta-analyses. This model tests whether cross-validation can successfully detect and validate a TRUE threshold when one genuinely exists at the claimed location. While Models 1-5 assess specificity (ability to reject false thresholds), Model 6 assesses sensitivity (ability to detect true thresholds), providing a complete evaluation of the validation approach's diagnostic performance.
+
 For each model, we generated 10,000 simulated meta-analyses and calculated false-positive rates using the same four analytical methods. This sensitivity analysis addresses the concern that our findings might depend on assuming a specific functional form and allows us to assess robustness across diverse scenarios including true thresholds, null effects, and random heterogeneity.
 
 ### Analytical Methods Applied to Simulated Data
