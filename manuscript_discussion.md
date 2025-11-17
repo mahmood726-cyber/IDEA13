@@ -154,6 +154,60 @@ We call on the beta-blocker IPD meta-analysis investigators to:
 
 These analyses would take minimal additional effort given the existing IPD but would substantially clarify whether the EF threshold represents a genuine biological phenomenon or a statistical artifact.
 
+---
+
+## Call to Action: Recommendations for Key Stakeholders
+
+We propose specific, actionable steps for three key constituencies to improve the validation of subgroup claims before they influence clinical practice:
+
+### For IPD Meta-Analysis Investigators
+
+When exploring subgroup effects in individual patient data meta-analyses:
+
+1. **Pre-specify subgroups and thresholds** in publicly registered analysis protocols before accessing data
+2. **Model continuous variables continuously** using splines or fractional polynomials as the primary analysis; only dichotomize if there is strong a priori biological rationale
+3. **Always report interaction tests** with explicit p-values and confidence intervals, not just stratified results
+4. **Calculate and report fragility indices** for any statistically significant subgroup finding
+5. **Perform internal cross-validation** (e.g., leave-one-trial-out) for any threshold claim before publication
+6. **Seek independent external replication** in separate datasets before recommending practice changes
+7. **Transparently acknowledge uncertainty** about findings that have not been validated
+
+### For Clinical Practice Guideline Committees
+
+When evaluating subgroup claims for guideline incorporation:
+
+1. **Require formal interaction testing** (p<0.05) as a minimum threshold; do not accept claims based solely on "significant in one group, not in another"
+2. **Assess statistical fragility** using fragility indices; consider claims with FI <5 as extremely unstable
+3. **Verify adequate statistical power** (≥80%) for the subgroup analysis, not just the overall trial
+4. **Demand validation evidence**: Has the finding been cross-validated internally or replicated externally?
+5. **Delay guideline recommendations** when validation has not been performed, explicitly noting this as a gap requiring future research
+6. **Apply the proposed 3-level validation framework** (Figure 5) systematically to all subgroup claims
+7. **Downgrade strength of recommendations** for subgroups that fail validation criteria, even if nominally "statistically significant"
+
+### For the Research Community
+
+To elevate methodological standards for subgroup analyses:
+
+1. **Journal editors**: Require reporting of interaction tests, fragility indices, and power calculations for all subgroup analyses in submission guidelines
+2. **Peer reviewers**: Routinely ask for cross-validation or external replication when subgroup claims are presented
+3. **Methodologists**: Develop and disseminate accessible tools for fragility analysis and cross-validation in meta-analyses
+4. **Funding agencies**: Prioritize support for independent replication studies of high-impact subgroup claims
+5. **Trial registries**: Enhance pre-specification requirements to include planned subgroup analyses with specific thresholds
+6. **Statistical reporting guidelines** (e.g., CONSORT, PRISMA): Incorporate fragility assessment and validation requirements
+7. **Educational initiatives**: Train clinicians and researchers to critically evaluate subgroup claims using the validation framework
+
+### Immediate Next Steps for the Beta-Blocker EF Threshold
+
+We specifically call on the investigators of the beta-blocker IPD meta-analyses to:
+
+- **Within 3 months**: Report the formal interaction test p-value and fragility index for the EF threshold
+- **Within 6 months**: Perform and publish leave-one-trial-out cross-validation of the EF=50% threshold
+- **Within 12 months**: Model LVEF continuously using restricted cubic splines and report whether treatment effect varies smoothly or exhibits a discontinuity
+
+These steps would provide the validation evidence necessary to determine whether EF-stratified recommendations should be incorporated into clinical practice guidelines.
+
+---
+
 ## Conclusions
 
 The proposed ejection fraction threshold for beta-blocker therapy after myocardial infarction does not meet multiple criteria for statistical robustness, including a non-significant interaction test, extreme fragility, severe underpowering, and lack of validation. Our simulations demonstrate that questionable thresholds arise frequently when continuous variables are dichotomized without proper validation—occurring in nearly half of analyses even when no true threshold exists. Cross-validation reduces false-positive rates 31-fold, yet this critical validation step is rarely applied in clinical research.
