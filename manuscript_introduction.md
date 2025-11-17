@@ -39,11 +39,11 @@ The beta-blocker ejection fraction threshold represents a critical test case for
 
 1. **To evaluate the statistical robustness** of the claimed EF=50% threshold using published summary data from both meta-analyses, including formal tests for interaction, power analysis, and fragility assessment.
 
-2. **To quantify the false-positive rate** of spurious threshold detection when analyzing continuous variables through simulation studies matching the structure of the original trials.
+2. **To quantify the false-positive rate** of questionable threshold detection when analyzing continuous variables through simulation studies matching the structure of the original trials.
 
 3. **To propose a validation framework** for future subgroup claims from IPD meta-analyses, emphasizing methods that distinguish true biological heterogeneity from statistical overfitting.
 
-We hypothesized that the EF=50% threshold would fail standard statistical validation tests and that simulation studies would demonstrate high false-positive rates for threshold detection when continuous variables are dichotomized without proper validation. Our findings have direct implications for the ongoing revision of clinical practice guidelines for beta-blocker therapy after MI.
+We hypothesized that the EF=50% threshold might not meet standard statistical validation criteria and that simulation studies would demonstrate high false-positive rates for threshold detection when continuous variables are dichotomized without proper validation. Our findings have direct implications for the ongoing revision of clinical practice guidelines for beta-blocker therapy after MI.
 
 ---
 

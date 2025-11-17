@@ -10,11 +10,11 @@
 
 *Part 1 - Empirical Analysis:* The test for interaction between EF subgroups was non-significant (p=0.069), providing no statistical evidence for different treatment effects. The EF 40-49% subgroup analysis was severely underpowered (235 events; 40% power to detect HR 0.80) and extremely fragile (fragility index=3 events, representing only 1.3% of total events). When both EF ranges were pooled, the overall HR was 0.94 (95% CI 0.85-1.03), indicating no significant benefit across the entire EF spectrum.
 
-*Part 2 - Simulation Study:* When testing multiple EF thresholds in data with smooth, continuous effects (no true threshold), standard dichotomization methods produced spurious "significant" thresholds in 46.8% of simulations. In contrast, cross-validation correctly rejected false thresholds in 98.5% of cases, representing a 31-fold reduction in false-positive rates.
+*Part 2 - Simulation Study:* When testing multiple EF thresholds in data with smooth, continuous effects (no true threshold), standard dichotomization methods produced questionable "significant" thresholds in 46.8% of simulations. In contrast, cross-validation correctly rejected false thresholds in 98.5% of cases, representing a 31-fold reduction in false-positive rates.
 
-**Conclusions:** The proposed LVEF 50% threshold represents statistical overfitting from underpowered subgroup analysis and dichotomization of a continuous variable, not a true biological phenomenon. The non-significant interaction test (p=0.069), extreme statistical fragility (FI=3), and high false-positive rates from dichotomization (46.8%) demonstrate this threshold is unreliable for guideline development. Clinical guidelines should not adopt EF-stratified beta-blocker recommendations based on current evidence.
+**Conclusions:** The proposed LVEF 50% threshold appears to represent statistical overfitting from underpowered subgroup analysis and dichotomization of a continuous variable rather than a true biological phenomenon. The non-significant interaction test (p=0.069), extreme statistical fragility (FI=3), and high false-positive rates from dichotomization (46.8%) indicate this threshold may be unreliable for guideline development. Adoption of EF-stratified beta-blocker recommendations would be premature based on current evidence.
 
-**Implications:** This case demonstrates how even high-quality IPD meta-analyses can produce spurious subgroup findings through standard analytical approaches. We propose a validation framework requiring: (1) significant interaction testing (p<0.05), (2) adequate statistical power (>80%), (3) fragility index >5, and (4) cross-validation of threshold claims before informing clinical practice. We call for the original investigators to apply cross-validation methods to their IPD data and for methodological standards requiring rigorous validation of subgroup claims before guideline adoption.
+**Implications:** This case demonstrates how even high-quality IPD meta-analyses can produce questionable subgroup findings through standard analytical approaches. We propose a validation framework requiring: (1) significant interaction testing (p<0.05), (2) adequate statistical power (>80%), (3) fragility index >5, and (4) cross-validation of threshold claims before informing clinical practice. We call for the original investigators to apply cross-validation methods to their IPD data and for methodological standards requiring rigorous validation of subgroup claims before guideline adoption.
 
 ---
 
@@ -33,7 +33,7 @@
 | **Pooled effect** | HR 0.94 (0.85-1.03) | No overall benefit when combined |
 | **Dichotomization false-positive rate** | 46.8% | Standard approach highly unreliable |
 | **Cross-validation false-positive rate** | 1.5% | 31× more accurate than standard approach |
-| **Validation tests failed** | 3 / 3 | Interaction, fragility, power all failed |
+| **Validation tests not met** | 3 / 3 | Interaction, fragility, power criteria not met |
 
 ---
 
@@ -41,13 +41,13 @@
 
 **Question:** Should beta-blockers be given based on ejection fraction thresholds after MI?
 
-**Answer:** No. The claimed EF 50% threshold is a statistical artifact, not biological reality.
+**Answer:** No. The claimed EF 50% threshold appears to be a statistical artifact rather than biological reality.
 
 **Evidence:**
 - The treatment effects at EF 40-49% vs ≥50% do not significantly differ (p=0.069)
 - The finding is extremely fragile (only 3 events needed to flip result)
 - The analysis was severely underpowered (40% power)
 - Overall, no benefit across the EF spectrum (HR 0.94, CI 0.85-1.03)
-- Simulations show this type of spurious finding occurs in 47% of analyses
+- Simulations show this type of finding occurs in 47% of analyses even when no true threshold exists
 
 **Recommendation:** Do not change clinical practice or guidelines based on this evidence.

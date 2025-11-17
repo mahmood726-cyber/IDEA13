@@ -99,7 +99,7 @@ This null overall effect calls into question whether beta-blockers truly benefit
 | **Fragility index** | FI = 3 events (1.3%) | ❌ No (FI < 5) |
 | **Statistical power** | 40% at HR=0.80 | ❌ No (power < 80%) |
 | **Overall pooled effect** | HR 0.94 (0.85-1.03) | ❌ Not significant |
-| **Validation tests passed** | **0 / 4** | ❌ **Failed all core tests** |
+| **Validation tests passed** | **0 / 4** | ❌ **Did not meet core criteria** |
 
 ### Interpretation of Findings: What Can and Cannot Be Concluded
 
@@ -217,9 +217,9 @@ To evaluate whether our findings depended on assumptions about the true function
 
 The core finding was robust across all five models: multiple threshold testing produced false-positive rates of 45-51% (approximately 10-fold higher than the nominal 5% Type I error rate), while cross-validation consistently maintained false-positive rates below 2.1%. This consistency across diverse functional forms—including a true gentle threshold (Model 3), complete null (Model 4), and random heterogeneous effects (Model 5)—demonstrates that the high false-positive rate of threshold testing is not an artifact of our modeling assumptions but rather a fundamental property of dichotomization combined with multiple testing.
 
-Notably, even when a **true threshold existed** (Model 3: threshold at EF=47%), multiple threshold testing still produced false positives in 44.7% of analyses. This occurs because testing 13 different thresholds (42-48%) finds spurious "significant" results at incorrect locations even when one true threshold exists elsewhere. Cross-validation correctly rejected 98.6% of these false findings (1.4% false-positive rate), demonstrating its ability to distinguish signal from noise.
+Notably, even when a **true threshold existed** (Model 3: threshold at EF=47%), multiple threshold testing still produced false positives in 44.7% of analyses. This occurs because testing 13 different thresholds (42-48%) finds questionable "significant" results at incorrect locations even when one true threshold exists elsewhere. Cross-validation correctly rejected 98.6% of these false findings (1.4% false-positive rate), demonstrating its ability to distinguish signal from noise.
 
-The complete null model (Model 4) produced the highest false-positive rate (51.3%), highlighting the paradox that when no true effect exists, researchers testing multiple thresholds are even more likely to find spurious "significant" results due to random variation. This scenario may be particularly relevant to the beta-blocker data, given the overall pooled effect of HR 0.94 (95% CI 0.85-1.03).
+The complete null model (Model 4) produced the highest false-positive rate (51.3%), highlighting the paradox that when no true effect exists, researchers testing multiple thresholds are even more likely to find questionable "significant" results due to random variation. This scenario may be particularly relevant to the beta-blocker data, given the overall pooled effect of HR 0.94 (95% CI 0.85-1.03).
 
 ### P-Value Distributions
 
@@ -227,14 +227,14 @@ Figure 3 shows the distribution of p-values across the four methods. For multipl
 
 ### Application to the Beta-Blocker Data
 
-The empirical beta-blocker findings bear the hallmarks of the spurious patterns we observed in simulations:
+The empirical beta-blocker findings bear the hallmarks of the questionable patterns we observed in simulations:
 
 1. **Non-significant interaction test** (p=0.069) — suggesting no true differential effect
 2. **Underpowered analysis** (40% power) — increasing vulnerability to noise
 3. **Testing likely occurred at multiple thresholds** (40%, 45%, 50%, etc.) — though not explicitly reported
 4. **No cross-validation performed** — leaving the finding unvalidated
 
-Our simulations demonstrate that these conditions produce false-positive "thresholds" in 47% of analyses even when no true threshold exists. The claimed EF=50% threshold fits the profile of a statistical artifact.
+Our simulations demonstrate that these conditions produce false-positive "thresholds" in 47% of analyses even when no true threshold exists. The claimed EF=50% threshold fits the profile of a potential statistical artifact.
 
 ---
 
@@ -245,7 +245,7 @@ Our simulations demonstrate that these conditions produce false-positive "thresh
 - ❌ Extremely fragile (FI=3 events, 1.3% of total)
 - ❌ Severely underpowered (40% power at HR=0.80)
 - ❌ No overall benefit (pooled HR 0.94, CI 0.85-1.03)
-- **Verdict:** Failed 4/4 validation tests
+- **Verdict:** Did not meet 4/4 validation criteria
 
 **Simulation Study (Part B):**
 - ⚠️ Standard threshold testing: 46.8% false-positive rate
@@ -253,7 +253,7 @@ Our simulations demonstrate that these conditions produce false-positive "thresh
 - ⚠️ "Discovered" thresholds distributed randomly across EF range
 - **Verdict:** Threshold claims require validation
 
-**Conclusion:** The proposed EF=50% threshold is a statistical artifact, not biological reality.
+**Conclusion:** The proposed EF=50% threshold appears to be a statistical artifact rather than biological reality.
 
 ---
 

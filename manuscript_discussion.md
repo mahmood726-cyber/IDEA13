@@ -2,11 +2,11 @@
 
 ## Principal Findings
 
-In this comprehensive validation study, we found that the proposed ejection fraction threshold for beta-blocker efficacy after myocardial infarction fails multiple statistical robustness tests. The formal test for interaction between the EF 40-49% and EF ≥50% subgroups was non-significant (p=0.069), providing no statistical evidence that treatment effects differ between these ranges. The EF 40-49% finding was extremely fragile (fragility index=3 events, only 1.3% of the total), severely underpowered (40% power for detecting HR 0.80), and based on insufficient cumulative information. When both EF ranges were pooled, no significant benefit of beta-blockers emerged (HR 0.94, 95% CI 0.85-1.03).
+In this comprehensive validation study, we found that the proposed ejection fraction threshold for beta-blocker efficacy after myocardial infarction does not meet multiple statistical robustness criteria. The formal test for interaction between the EF 40-49% and EF ≥50% subgroups was non-significant (p=0.069), providing no statistical evidence that treatment effects differ between these ranges. The EF 40-49% finding was extremely fragile (fragility index=3 events, only 1.3% of the total), severely underpowered (40% power for detecting HR 0.80), and based on insufficient cumulative information. When both EF ranges were pooled, no significant benefit of beta-blockers emerged (HR 0.94, 95% CI 0.85-1.03).
 
-Our simulation study demonstrated why such spurious thresholds arise. When researchers test multiple EF cutpoints—a practice enabled by the flexibility of dichotomizing continuous variables—false-positive "thresholds" emerge in 46.8% of analyses even when no true threshold exists. Cross-validation reduced this rate 31-fold to 1.5%, highlighting the critical importance of validation procedures that are rarely applied in practice.
+Our simulation study demonstrated why questionable thresholds can arise. When researchers test multiple EF cutpoints—a practice enabled by the flexibility of dichotomizing continuous variables—false-positive "thresholds" emerge in 46.8% of analyses even when no true threshold exists. Cross-validation reduced this rate 31-fold to 1.5%, highlighting the critical importance of validation procedures that are rarely applied in practice.
 
-Together, these findings strongly suggest that the EF=50% threshold is a statistical artifact resulting from underpowered subgroup analysis and data-dependent threshold selection, not evidence of a true biological discontinuity.
+Together, these findings suggest that the EF=50% threshold likely represents a statistical artifact resulting from underpowered subgroup analysis and data-dependent threshold selection rather than evidence of a true biological discontinuity.
 
 ## Interpretation in Context
 
@@ -20,7 +20,7 @@ Our simulations quantified this phenomenon with precision: testing 13 thresholds
 
 Cross-validation represents a fundamental principle of predictive modeling: findings discovered in one dataset should replicate in independent data before being trusted.[41,42] Yet in clinical research, cross-validation is rarely applied to subgroup analyses, even when individual patient data are available.[28,29]
 
-Our simulations demonstrated the profound benefit of this simple validation step. While 46.8% of standard analyses found spurious thresholds, only 1.5% of these false findings survived cross-validation—a 31-fold reduction in false-positive rate. This occurred because random variation differs across trials; a chance finding in trials A+B+C will not consistently replicate in trial D.[43,44]
+Our simulations demonstrated the profound benefit of this simple validation step. While 46.8% of standard analyses found questionable thresholds, only 1.5% of these findings survived cross-validation—a 31-fold reduction in false-positive rate. This occurred because random variation differs across trials; a chance finding in trials A+B+C will not consistently replicate in trial D.[43,44]
 
 The beta-blocker researchers had access to IPD from four trials, providing an ideal opportunity for cross-validation. Had they applied leave-one-trial-out validation, the fragility of the EF threshold would have become immediately apparent. We strongly recommend cross-validation as a mandatory step for any subgroup claim proposed for guideline adoption.
 
@@ -48,7 +48,7 @@ Our findings contribute to a growing literature documenting overfitting and fals
 
 - **Schandelmaier et al. (2020)** developed the ICEMAN tool for assessing credibility of effect modification claims and found that most published claims scored poorly on methodological rigor.[47]
 
-Our study extends this work by: (1) applying these principles to a high-profile, practice-changing claim from recent IPD meta-analyses; (2) demonstrating the power of simulation studies to quantify false-positive rates under realistic conditions; and (3) showing that even IPD meta-analyses—often considered the "gold standard" of evidence—can produce spurious findings when validation procedures are not applied.
+Our study extends this work by: (1) applying these principles to a high-profile, practice-changing claim from recent IPD meta-analyses; (2) demonstrating the power of simulation studies to quantify false-positive rates under realistic conditions; and (3) showing that even IPD meta-analyses—often considered the "gold standard" of evidence—can produce questionable findings when validation procedures are not applied.
 
 The beta-blocker EF threshold is not an isolated case. Similar threshold claims have emerged for statin therapy by age,[48] anticoagulation by stroke risk score,[49] and revascularization by coronary anatomy[50]—many without rigorous validation. Our proposed framework (Figure 5) provides a systematic approach to evaluating such claims.
 
@@ -98,7 +98,7 @@ Despite these limitations, we believe our analyses provide sufficient evidence t
 
 ### Should Clinical Practice Change Based on These Findings?
 
-Our analysis strongly suggests that clinical guidelines should **not** adopt ejection fraction-stratified recommendations for beta-blocker therapy after MI based on current evidence. The EF=50% threshold fails fundamental statistical validation tests and appears to represent a spurious finding rather than genuine biological heterogeneity.
+Our analysis suggests that adoption of ejection fraction-stratified recommendations for beta-blocker therapy after MI would be premature based on current evidence. The EF=50% threshold does not meet fundamental statistical validation criteria and appears to represent a questionable finding rather than genuine biological heterogeneity.
 
 Clinicians face several evidence-based options:
 
@@ -150,15 +150,15 @@ We call on the beta-blocker IPD meta-analysis investigators to:
 2. Model ejection fraction as a continuous variable using splines or fractional polynomials
 3. Test whether the EF=50% threshold replicates across the four trials
 4. Report the interaction test p-value and fragility index in a follow-up publication
-5. If validation fails, clarify that the threshold should not guide clinical practice
+5. If validation does not support the threshold, clarify that it may not be suitable to guide clinical practice
 
-These analyses would take minimal additional effort given the existing IPD but would substantially clarify whether the EF threshold represents a genuine biological phenomenon or statistical artifact.
+These analyses would take minimal additional effort given the existing IPD but would substantially clarify whether the EF threshold represents a genuine biological phenomenon or a statistical artifact.
 
 ## Conclusions
 
-The proposed ejection fraction threshold for beta-blocker therapy after myocardial infarction fails multiple tests of statistical robustness, including a non-significant interaction test, extreme fragility, severe underpowering, and lack of validation. Our simulations demonstrate that such spurious thresholds arise frequently when continuous variables are dichotomized without proper validation—occurring in nearly half of analyses even when no true threshold exists. Cross-validation reduces false-positive rates 31-fold, yet this critical validation step is rarely applied in clinical research.
+The proposed ejection fraction threshold for beta-blocker therapy after myocardial infarction does not meet multiple criteria for statistical robustness, including a non-significant interaction test, extreme fragility, severe underpowering, and lack of validation. Our simulations demonstrate that questionable thresholds arise frequently when continuous variables are dichotomized without proper validation—occurring in nearly half of analyses even when no true threshold exists. Cross-validation reduces false-positive rates 31-fold, yet this critical validation step is rarely applied in clinical research.
 
-Clinical guidelines should not adopt EF-stratified beta-blocker recommendations based on current evidence. More broadly, our findings illustrate how even high-quality individual patient data meta-analyses can produce misleading subgroup claims when standard analytical practices are not supplemented with rigorous validation procedures. We propose a three-level validation framework (Figure 5) to evaluate the credibility of future subgroup claims before they inform clinical practice.
+Adoption of EF-stratified beta-blocker recommendations would be premature based on current evidence. More broadly, our findings illustrate how even high-quality individual patient data meta-analyses can produce questionable subgroup claims when standard analytical practices are not supplemented with rigorous validation procedures. We propose a three-level validation framework (Figure 5) to evaluate the credibility of future subgroup claims before they inform clinical practice.
 
 The stakes are high: millions of patients worldwide may be affected by guideline recommendations based on statistical artifacts. Elevating the standard of evidence for subgroup claims—through mandatory interaction testing, fragility assessment, and cross-validation—represents an achievable step toward more reliable, patient-centered clinical practice guidelines.
 
