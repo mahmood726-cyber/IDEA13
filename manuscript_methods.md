@@ -121,6 +121,42 @@ This equation produces HR=0.70 at EF=40%, declining linearly to HR=0.90 at EF=50
 
 5. **Survival time generation**: Event times were generated from an exponential distribution with hazard rate $\lambda = \lambda_0 \times \exp(\beta \times treatment)$, where $\lambda_0 = 0.038$ (baseline annual rate) and $\beta = \log(HR(EF))$ varies continuously with each patient's ejection fraction. Censoring times were generated from an exponential distribution with mean 3.5 years (matching median follow-up).
 
+### Sensitivity Analysis: Alternative True Effect Models
+
+To test whether our findings were robust to assumptions about the true functional form of the treatment effect-LVEF relationship, we repeated the simulation study using five different true effect models:
+
+**Model 1: Linear decline (primary analysis)**
+
+$$\log(HR(EF)) = -0.287 + 0.0182 \times (EF - 40)$$
+
+HR declines linearly from 0.70 at EF=40% to 0.90 at EF=50%.
+
+**Model 2: Quadratic (accelerating decline)**
+
+$$\log(HR(EF)) = -0.287 + 0.0091 \times (EF - 40) + 0.00091 \times (EF - 40)^2$$
+
+HR decline accelerates as EF increases, representing a convex relationship where benefit diminishes more rapidly at higher LVEF values.
+
+**Model 3: Gentle threshold at EF=47%**
+
+$$\log(HR(EF)) = \begin{cases} -0.357 & \text{if } EF < 47\% \\ -0.107 & \text{if } EF \geq 47\% \end{cases}$$
+
+Represents HR=0.70 below 47%, HR=0.90 above 47%—a true but modest discontinuity. This tests whether genuine thresholds can be distinguished from noise.
+
+**Model 4: Complete null (no effect)**
+
+$$\log(HR(EF)) = 0 \text{ for all } EF$$
+
+HR=1.0 at all LVEF values, representing the scenario where beta-blockers provide no benefit at any ejection fraction.
+
+**Model 5: Random heterogeneous effects**
+
+$$\log(HR(EF)) \sim \text{Uniform}(-0.357, -0.107) \text{ independently for each trial}$$
+
+Heterogeneous treatment effects across trials with no systematic LVEF relationship, representing the scenario where differences across trials reflect random variation rather than a biological gradient.
+
+For each model, we generated 10,000 simulated meta-analyses and calculated false-positive rates using the same four analytical methods. This sensitivity analysis addresses the concern that our findings might depend on assuming a specific functional form and allows us to assess robustness across diverse scenarios including true thresholds, null effects, and random heterogeneity.
+
 ### Analytical Methods Applied to Simulated Data
 
 We applied four different analytical strategies to each of the 10,000 simulated datasets:

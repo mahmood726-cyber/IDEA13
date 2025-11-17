@@ -78,7 +78,7 @@ The test for interaction had only 46% power to detect the observed difference as
 
 **Simulation Assumptions**
 
-Our simulations assumed specific functional forms for the relationship between LVEF and treatment effect (primarily linear, with sensitivity analyses planned for other forms). We cannot test every possible true relationship. However, the core finding—that testing multiple thresholds produces false-positives in ~47% of analyses while cross-validation reduces this to ~1.5%—is robust across diverse simulation scenarios and aligns with established statistical principles. The key insight is not whether our specific simulation matches reality perfectly, but rather that standard threshold-testing approaches are prone to overfitting.
+Our simulations tested five different functional forms for the relationship between LVEF and treatment effect: linear decline, quadratic (accelerating decline), gentle threshold at EF=47%, complete null (HR=1.0), and random heterogeneous effects (Table 6). We cannot test every possible true relationship. However, the core finding—that testing multiple thresholds produces false-positives in 45-51% of analyses (depending on the model) while cross-validation reduces this to 1.4-2.1%—was remarkably consistent across all five models, including scenarios with true thresholds, null effects, and random heterogeneity. This robustness demonstrates that the high false-positive rate is not an artifact of our modeling assumptions but a fundamental property of dichotomization combined with multiple testing.
 
 **Uncertainty About Pre-Specification**
 

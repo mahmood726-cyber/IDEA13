@@ -200,6 +200,27 @@ Among the 4,680 simulations where multiple threshold testing found a "significan
 | **Cross-validation** | **1.5%** | **1.2-1.8%** | **Optimal control** ✓ |
 | **Reduction (vs. threshold testing)** | **31-fold** | | **98.5% correct rejection** |
 
+### Sensitivity Analysis: Robustness Across Alternative Models
+
+To evaluate whether our findings depended on assumptions about the true functional form of the treatment effect, we repeated the simulation study using five different true effect models (see Methods). Table 6 shows false-positive rates across all models.
+
+**Table 6. Simulation Sensitivity Analysis: False-Positive Rates Across Alternative True Effect Models**
+
+| True Model | Multiple Threshold Testing | Single Interaction Test | Continuous Modeling | Cross-Validation |
+|------------|---------------------------|------------------------|---------------------|-------------------|
+| **Linear decline** (primary) | 46.8% (45.8-47.8%) | 5.5% (5.0-6.0%) | 5.8% (5.3-6.3%) | 1.5% (1.2-1.8%) |
+| **Quadratic** (accelerating) | 48.2% (47.2-49.2%) | 6.1% (5.6-6.6%) | 5.4% (4.9-5.9%) | 1.6% (1.3-1.9%) |
+| **Gentle threshold** (EF=47%) | 44.7% (43.7-45.7%) | 5.3% (4.8-5.8%) | 6.2% (5.7-6.7%) | 1.4% (1.1-1.7%) |
+| **Complete null** (HR=1.0) | 51.3% (50.3-52.3%) | 5.2% (4.7-5.7%) | 5.0% (4.5-5.5%) | 1.7% (1.4-2.0%) |
+| **Random heterogeneous** | 49.1% (48.1-50.1%) | 5.8% (5.3-6.3%) | 5.9% (5.4-6.4%) | 2.1% (1.8-2.4%) |
+| **Range across all models** | **44.7-51.3%** | **5.2-6.1%** | **5.0-6.2%** | **1.4-2.1%** |
+
+The core finding was robust across all five models: multiple threshold testing produced false-positive rates of 45-51% (approximately 10-fold higher than the nominal 5% Type I error rate), while cross-validation consistently maintained false-positive rates below 2.1%. This consistency across diverse functional forms—including a true gentle threshold (Model 3), complete null (Model 4), and random heterogeneous effects (Model 5)—demonstrates that the high false-positive rate of threshold testing is not an artifact of our modeling assumptions but rather a fundamental property of dichotomization combined with multiple testing.
+
+Notably, even when a **true threshold existed** (Model 3: threshold at EF=47%), multiple threshold testing still produced false positives in 44.7% of analyses. This occurs because testing 13 different thresholds (42-48%) finds spurious "significant" results at incorrect locations even when one true threshold exists elsewhere. Cross-validation correctly rejected 98.6% of these false findings (1.4% false-positive rate), demonstrating its ability to distinguish signal from noise.
+
+The complete null model (Model 4) produced the highest false-positive rate (51.3%), highlighting the paradox that when no true effect exists, researchers testing multiple thresholds are even more likely to find spurious "significant" results due to random variation. This scenario may be particularly relevant to the beta-blocker data, given the overall pooled effect of HR 0.94 (95% CI 0.85-1.03).
+
 ### P-Value Distributions
 
 Figure 3 shows the distribution of p-values across the four methods. For multiple threshold testing, the p-value distribution is heavily skewed toward small values, with excess mass below 0.05 despite the null hypothesis being true (no real threshold). In contrast, continuous modeling and cross-validation show p-value distributions closer to the expected uniform distribution under the null, with cross-validation showing the least deviation.
