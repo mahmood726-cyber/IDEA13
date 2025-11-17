@@ -1,0 +1,61 @@
+======================================================================
+BETA-BLOCKER EF THRESHOLD SIMULATION STUDY
+Running actual simulations as described in manuscript methods
+======================================================================
+
+Simulation parameters:
+  N simulations per model: 10,000
+  N trials per meta-analysis: 4
+  Total patients per simulation: 1885
+  Target events: ~235
+  EF range: 40.0-49.9%
+  Thresholds tested: 13 (42.0-48.0%)
+
+
+======================================================================
+MODEL: Model 1: Linear Decline (Primary)
+======================================================================
+Running 10,000 simulations...
+
+  Progress: 1,000/10,000 (10.0%) | Rate: 163.4 sim/sec | ETA: 55s
+  Progress: 2,000/10,000 (20.0%) | Rate: 167.2 sim/sec | ETA: 48s
+  Progress: 3,000/10,000 (30.0%) | Rate: 168.9 sim/sec | ETA: 41s
+  Progress: 4,000/10,000 (40.0%) | Rate: 167.5 sim/sec | ETA: 36s
+  Progress: 5,000/10,000 (50.0%) | Rate: 167.4 sim/sec | ETA: 30s
+  Progress: 6,000/10,000 (60.0%) | Rate: 167.5 sim/sec | ETA: 24s
+  Progress: 7,000/10,000 (70.0%) | Rate: 167.1 sim/sec | ETA: 18s
+  Progress: 8,000/10,000 (80.0%) | Rate: 167.0 sim/sec | ETA: 12s
+  Progress: 9,000/10,000 (90.0%) | Rate: 167.0 sim/sec | ETA: 6s
+  Progress: 10,000/10,000 (100.0%) | Rate: 167.4 sim/sec | ETA: 0s
+
+COMPLETED in 59.8 seconds (167.4 sim/sec)
+
+RESULTS:
+  Method 1 (Multiple Thresholds): 40.7% (39.7-41.6%)
+  Method 2 (Single Interaction):  5.6% (5.1-6.0%)
+  Method 3 (Continuous):          5.5% (5.0-5.9%)
+  Method 4 (Cross-Validation):    6.1% (5.6-6.6%)
+
+  Discovered thresholds (n=19797):
+    EF 42.0%: 696 times
+    EF 42.5%: 809 times
+    EF 43.0%: 987 times
+    EF 43.5%: 1079 times
+    EF 44.0%: 1273 times
+    EF 44.5%: 1447 times
+    EF 45.0%: 1581 times
+    EF 45.5%: 1758 times
+    EF 46.0%: 1883 times
+    EF 46.5%: 1966 times
+    EF 47.0%: 2054 times
+    EF 47.5%: 2110 times
+    EF 48.0%: 2154 times
+
+======================================================================
+SAVING RESULTS
+======================================================================
+✓ Results saved to: simulation_results.pkl
+
+======================================================================
+SIMULATION STUDY COMPLETE
+======================================================================
