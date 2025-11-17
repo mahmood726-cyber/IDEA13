@@ -172,46 +172,46 @@ We applied four different analytical strategies to each simulated dataset:
 **Method 1: Multiple Threshold Testing (Standard Practice)**
 We tested EF cutpoints at every 0.5% interval from 42% to 48% (13 thresholds tested), asking whether the "low EF" group showed significant benefit (p<0.05). This mimics the common practice of exploring multiple thresholds to find a "significant" cutpoint.
 
-- **Result:** 46.8% of simulations produced at least one "significant" threshold
+- **Result:** 40.7% of simulations produced at least one "significant" threshold
 - **Interpretation:** Nearly half of analyses found spurious significant results
 - **Implication:** Standard threshold-testing approaches have unacceptably high false-positive rates
 
 **Method 2: Single Interaction Test at EF=45%**
 We tested for interaction between groups dichotomized at EF=45% (near the midpoint).
 
-- **Result:** 5.5% false-positive rate
+- **Result:** 5.6% false-positive rate
 - **Interpretation:** Close to the expected 5% Type I error rate
 - **Implication:** Single pre-specified tests perform as expected
 
 **Method 3: Continuous Modeling (Correct Approach)**
 We modeled EF as a continuous variable (HR ~ treatment × EF) and tested whether the treatment effect varied significantly with EF.
 
-- **Result:** 5.8% detected a "significant" interaction
+- **Result:** 5.5% detected a "significant" interaction
 - **Interpretation:** Appropriate Type I error control
 - **Implication:** Continuous modeling avoids threshold artifacts
 
 **Method 4: Cross-Validation**
 We performed leave-one-trial-out cross-validation: discover the "optimal" threshold in three trials, then test whether it replicates in the held-out fourth trial.
 
-- **Result:** Only 1.5% of spurious thresholds validated in held-out data
-- **Interpretation:** 98.5% of false findings correctly rejected
-- **Implication:** Cross-validation provides 31-fold reduction in false-positive rate compared to standard threshold testing (46.8% → 1.5%)
+- **Result:** Only 6.1% of spurious thresholds validated in held-out data
+- **Interpretation:** 93.9% of false findings correctly rejected
+- **Implication:** Cross-validation provides 6.7-fold reduction in false-positive rate compared to standard threshold testing (40.7% → 6.1%)
 
 **Figure 2** displays the false-positive rates across methods, demonstrating the stark superiority of validation approaches.
 
 ### Distribution of "Discovered" Thresholds
 
-Among the 4,680 simulations where multiple threshold testing found a "significant" result, the "discovered" threshold was distributed approximately uniformly across the tested range (42%-48%), with no clustering at any particular value (Figure 3, Panel B). This confirms that the "significant" thresholds were random artifacts rather than recovery of any true biological signal, since we programmed a smooth continuous effect with no true threshold.
+Among the 4,070 simulations where multiple threshold testing found a "significant" result, the "discovered" threshold was distributed approximately uniformly across the tested range (42%-48%), with no clustering at any particular value (Figure 3, Panel B). This confirms that the "significant" thresholds were random artifacts rather than recovery of any true biological signal, since we programmed a smooth continuous effect with no true threshold.
 
 **Table 5. Simulation Study Results (N=10,000 Iterations)**
 
 | Method | False-Positive Rate | 95% CI | Interpretation |
 |--------|---------------------|---------|----------------|
-| Multiple threshold testing | 46.8% | 45.8-47.8% | Unacceptably high ⚠️ |
-| Single interaction test | 5.5% | 5.0-6.0% | Expected Type I error |
-| Continuous modeling | 5.8% | 5.3-6.3% | Expected Type I error |
-| **Cross-validation** | **1.5%** | **1.2-1.8%** | **Optimal control** ✓ |
-| **Reduction (vs. threshold testing)** | **31-fold** | | **98.5% correct rejection** |
+| Multiple threshold testing | 40.7% | 39.7-41.6% | Unacceptably high ⚠️ |
+| Single interaction test | 5.6% | 5.1-6.0% | Expected Type I error |
+| Continuous modeling | 5.5% | 5.0-5.9% | Expected Type I error |
+| **Cross-validation** | **6.1%** | **5.6-6.6%** | **Substantially better** ✓ |
+| **Reduction (vs. threshold testing)** | **6.7-fold** | | **93.9% correct rejection** |
 
 ### Sensitivity Analysis: Robustness Across Alternative Models
 
@@ -221,7 +221,7 @@ To evaluate whether our findings depended on assumptions about the true function
 
 | True Model | Multiple Threshold Testing | Single Interaction Test | Continuous Modeling | Cross-Validation |
 |------------|---------------------------|------------------------|---------------------|-------------------|
-| **Linear decline** (primary) | 46.8% (45.8-47.8%) | 5.5% (5.0-6.0%) | 5.8% (5.3-6.3%) | 1.5% (1.2-1.8%) |
+| **Linear decline** (primary) | 40.7% (39.7-41.6%) | 5.6% (5.1-6.0%) | 5.5% (5.0-5.9%) | 6.1% (5.6-6.6%) |
 | **Quadratic** (accelerating) | 48.2% (47.2-49.2%) | 6.1% (5.6-6.6%) | 5.4% (4.9-5.9%) | 1.6% (1.3-1.9%) |
 | **Gentle threshold** (EF=47%) | 44.7% (43.7-45.7%) | 5.3% (4.8-5.8%) | 6.2% (5.7-6.7%) | 1.4% (1.1-1.7%) |
 | **Complete null** (HR=1.0) | 51.3% (50.3-52.3%) | 5.2% (4.7-5.7%) | 5.0% (4.5-5.5%) | 1.7% (1.4-2.0%) |
@@ -262,7 +262,7 @@ The empirical beta-blocker findings bear the hallmarks of the questionable patte
 3. **Testing likely occurred at multiple thresholds** (40%, 45%, 50%, etc.) — though not explicitly reported
 4. **No cross-validation performed** — leaving the finding unvalidated
 
-Our simulations demonstrate that these conditions produce false-positive "thresholds" in 47% of analyses even when no true threshold exists. The claimed EF=50% threshold fits the profile of a potential statistical artifact.
+Our simulations demonstrate that these conditions produce false-positive "thresholds" in 41% of analyses even when no true threshold exists. The claimed EF=50% threshold fits the profile of a potential statistical artifact.
 
 ---
 
@@ -276,8 +276,8 @@ Our simulations demonstrate that these conditions produce false-positive "thresh
 - **Verdict:** Did not meet 4/4 validation criteria
 
 **Simulation Study (Part B):**
-- ⚠️ Standard threshold testing: 46.8% false-positive rate
-- ✓ Cross-validation: 1.5% false-positive rate (31-fold improvement)
+- ⚠️ Standard threshold testing: 40.7% false-positive rate
+- ✓ Cross-validation: 6.1% false-positive rate (6.7-fold improvement)
 - ⚠️ "Discovered" thresholds distributed randomly across EF range
 - **Verdict:** Threshold claims require validation
 

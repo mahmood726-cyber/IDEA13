@@ -4,7 +4,7 @@
 
 In this comprehensive validation study, we found that the proposed ejection fraction threshold for beta-blocker efficacy after myocardial infarction does not meet multiple statistical robustness criteria. The formal test for interaction between the EF 40-49% and EF ≥50% subgroups was non-significant (p=0.069), providing no statistical evidence that treatment effects differ between these ranges. The EF 40-49% finding was extremely fragile (fragility index=3 events, only 1.3% of the total), severely underpowered (40% power for detecting HR 0.80), and based on insufficient cumulative information. When both EF ranges were pooled, no significant benefit of beta-blockers emerged (HR 0.94, 95% CI 0.85-1.03).
 
-Our simulation study demonstrated why questionable thresholds can arise. When researchers test multiple EF cutpoints—a practice enabled by the flexibility of dichotomizing continuous variables—false-positive "thresholds" emerge in 46.8% of analyses even when no true threshold exists. Cross-validation reduced this rate 31-fold to 1.5%, highlighting the critical importance of validation procedures that are rarely applied in practice.
+Our simulation study demonstrated why questionable thresholds can arise. When researchers test multiple EF cutpoints—a practice enabled by the flexibility of dichotomizing continuous variables—false-positive "thresholds" emerge in 40.7% of analyses even when no true threshold exists. Cross-validation reduced this rate 6.7-fold to 6.1%, highlighting the critical importance of validation procedures that are rarely applied in practice.
 
 Together, these findings suggest that the EF=50% threshold likely represents a statistical artifact resulting from underpowered subgroup analysis and data-dependent threshold selection rather than evidence of a true biological discontinuity.
 
@@ -20,7 +20,7 @@ Our simulations quantified this phenomenon with precision: testing 13 thresholds
 
 Cross-validation represents a fundamental principle of predictive modeling: findings discovered in one dataset should replicate in independent data before being trusted.[41,42] Yet in clinical research, cross-validation is rarely applied to subgroup analyses, even when individual patient data are available.[28,29]
 
-Our simulations demonstrated the profound benefit of this simple validation step. While 46.8% of standard analyses found questionable thresholds, only 1.5% of these findings survived cross-validation—a 31-fold reduction in false-positive rate. This occurred because random variation differs across trials; a chance finding in trials A+B+C will not consistently replicate in trial D.[43,44]
+Our simulations demonstrated the profound benefit of this simple validation step. While 40.7% of standard analyses found questionable thresholds, only 6.1% of these findings survived cross-validation—a 6.7-fold reduction in false-positive rate. This occurred because random variation differs across trials; a chance finding in trials A+B+C will not consistently replicate in trial D.[43,44]
 
 The beta-blocker researchers had access to IPD from four trials, providing an ideal opportunity for cross-validation. Had they applied leave-one-trial-out validation, the fragility of the EF threshold would have become immediately apparent. We encourage journal editors and guideline bodies to consider cross-validation as a recommended validation step for subgroup claims proposed for guideline adoption.
 

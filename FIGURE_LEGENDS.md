@@ -28,7 +28,7 @@ Comparison of false-positive rates across four analytical methods applied to sim
 3. **Continuous Modeling:** Treatment effect modeled as continuous function of EF
 4. **Cross-Validation:** Leave-one-trial-out validation of discovered thresholds
 
-**Results:** Multiple threshold testing produced spurious "significant" findings in 46.8% of simulations (95% CI 45.8-47.8%), representing a ~10-fold inflation over the expected 5% Type I error rate. In contrast, cross-validation correctly rejected false thresholds in 98.5% of cases (false-positive rate 1.5%, 95% CI 1.2-1.8%), representing a **31-fold reduction** compared to standard threshold testing.
+**Results:** Multiple threshold testing produced spurious "significant" findings in 40.7% of simulations (95% CI 39.7-41.6%), representing an ~8-fold inflation over the expected 5% Type I error rate. In contrast, cross-validation correctly rejected false thresholds in 93.9% of cases (false-positive rate 6.1%, 95% CI 5.6-6.6%), representing a **6.7-fold reduction** compared to standard threshold testing.
 
 **Interpretation:** Standard practice of testing multiple EF thresholds has unacceptably high false-positive rates. Cross-validation provides robust protection against spurious threshold claims.
 
@@ -38,11 +38,11 @@ Comparison of false-positive rates across four analytical methods applied to sim
 
 ## Figure 3. Distribution of "Discovered" Thresholds and P-Value Distributions
 
-**Panel A (Left):** Distribution of "discovered" thresholds among the 4,680 simulated meta-analyses (out of 10,000 total) where multiple threshold testing found at least one "significant" result. Thresholds are distributed approximately uniformly across the tested range (42-48% EF), with no clustering at any particular value. This uniform distribution confirms that "significant" thresholds were **random artifacts** rather than recovery of any true biological signal, since the data-generating model contained a smooth continuous effect with no discontinuity.
+**Panel A (Left):** Distribution of "discovered" thresholds among the 4,070 simulated meta-analyses (out of 10,000 total) where multiple threshold testing found at least one "significant" result. Thresholds are distributed approximately uniformly across the tested range (42-48% EF), with no clustering at any particular value. This uniform distribution confirms that "significant" thresholds were **random artifacts** rather than recovery of any true biological signal, since the data-generating model contained a smooth continuous effect with no discontinuity.
 
 **Panel B (Right):** Distribution of p-values from the 10,000 simulated meta-analyses for two analytical approaches:
-- **Red histogram (Multiple Threshold Testing):** Shows excess mass of small p-values despite the null hypothesis being true (no true threshold), with 46.8% of p-values <0.05
-- **Green histogram (Cross-Validation):** Shows approximately uniform distribution of p-values, as expected under the null hypothesis, with only 1.5% of p-values <0.05
+- **Red histogram (Multiple Threshold Testing):** Shows excess mass of small p-values despite the null hypothesis being true (no true threshold), with 40.7% of p-values <0.05
+- **Green histogram (Single Interaction Test):** Shows approximately uniform distribution of p-values, as expected under the null hypothesis, with only 5.6% of p-values <0.05
 
 **Interpretation:** The excess small p-values from threshold testing represent inflated Type I error. Cross-validation maintains proper Type I error control. The shaded region highlights p<0.05 (conventional significance threshold).
 
@@ -50,7 +50,7 @@ Comparison of false-positive rates across four analytical methods applied to sim
 
 ---
 
-## Figure 5. Proposed Validation Framework for Subgroup Claims from Individual Patient Data Meta-Analyses
+## Figure 4. Proposed Validation Framework for Subgroup Claims from Individual Patient Data Meta-Analyses
 
 A three-level hierarchical framework for evaluating the credibility of subgroup effect claims before incorporating them into clinical practice guidelines.
 
@@ -104,7 +104,7 @@ A three-level hierarchical framework for evaluating the credibility of subgroup 
 - Figure 1: ~150-200 KB (PNG), ~50-75 KB (PDF)
 - Figure 2: ~100-150 KB (PNG), ~40-60 KB (PDF)
 - Figure 3: ~200-250 KB (PNG), ~75-100 KB (PDF)
-- Figure 5: ~300-400 KB (PNG), ~100-150 KB (PDF)
+- Figure 4: ~300-400 KB (PNG), ~100-150 KB (PDF)
 
 **Color scheme:**
 - Blue (#2E86AB): EF 40-49% subgroup
@@ -127,9 +127,9 @@ A three-level hierarchical framework for evaluating the credibility of subgroup 
 1. **Figure1_ForestPlot.png** / **Figure1_ForestPlot.pdf**
 2. **Figure2_FalsePositiveRates.png** / **Figure2_FalsePositiveRates.pdf**
 3. **Figure3_ThresholdDistributions.png** / **Figure3_ThresholdDistributions.pdf**
-4. **Figure5_ValidationFramework.png** / **Figure5_ValidationFramework.pdf**
+4. **Figure4_ValidationFramework.png** / **Figure4_ValidationFramework.pdf**
 
-**Note:** Figure 4 is not included as the manuscript only specifies Figures 1-3 and 5.
+**Note:** All figures numbered consecutively 1-4. Figures 2 and 3 use actual simulation data (N=10,000 iterations).
 
 ---
 
