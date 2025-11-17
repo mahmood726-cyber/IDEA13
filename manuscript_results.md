@@ -4,6 +4,8 @@
 
 We analyzed published summary data from two companion individual patient data (IPD) meta-analyses comprising 19,686 patients with recent myocardial infarction from four contemporary randomized trials (REBOOT, BETAMI, DANBLOCK, and CAPITAL-RCT). The EF 40-49% meta-analysis included 1,885 patients (991 assigned to beta-blockers, 894 to control) with 235 primary endpoint events (death, MI, or heart failure).[8] The EF ≥50% meta-analysis included 17,801 patients (8,831 assigned to beta-blockers, 8,970 to control) with 1,465 events.[9] Baseline characteristics and trial designs have been reported previously.[8,9]
 
+**Note on Figures:** Figures 1-3 and Figure 5 (referenced throughout this manuscript) are in preparation and will be provided with the final submission. Figure specifications and detailed descriptions are available in supplementary materials.
+
 ---
 
 ## Part A: Statistical Validation of the Proposed EF Threshold
@@ -23,7 +25,16 @@ This wide confidence interval encompasses:
 
 The substantial imprecision—combined with extreme fragility (see below) and inadequate power in the EF 40-49% subgroup—indicates that **the evidence base is insufficient** to support confident subgroup inferences, let alone practice-changing guideline recommendations.
 
-Importantly, when statistical evidence is limited (whether due to non-significant testing, low power, or both), the appropriate interpretation is **uncertainty**, not confidence in subgroup-based treatment decisions. In this context, the burden of proof for altering clinical guidelines falls on those claiming a threshold effect. That burden has not been met (Figure 1, Table 1).
+**Interpretation: Equipoise, Not Certainty**
+
+Given the limited power (46%), our non-significant interaction test should be interpreted as **"absence of evidence"** rather than **"evidence of absence."** The wide confidence interval (-0.53 to +0.02) reflects substantial uncertainty about whether treatment effects truly differ between subgroups. The data are equally consistent with:
+- No threshold effect (HR difference = 0)
+- A modest threshold effect (HR difference ≈ 0.20-0.25)
+- A larger threshold effect (HR difference ≈ 0.40-0.50)
+
+This uncertainty means that both those claiming a sharp threshold exists AND those arguing it does not exist lack adequate statistical evidence for confident assertions. **We do not claim to have proven the threshold is absent**; rather, we conclude that the available evidence—from both the original analyses and our evaluation—is insufficient to support practice-changing recommendations based on EF stratification.
+
+The 54% probability of Type II error (given 46% power) means a true difference in treatment effects might exist but went undetected in our interaction test. However, this same limited power also undermines confidence in the original EF 40-49% finding (Table 1).
 
 **Table 1. Test for Interaction Between EF Subgroups**
 
@@ -51,6 +62,8 @@ Importantly, when statistical evidence is limited (whether due to non-significan
 The fragility index for the EF 40-49% finding was **3 events**, meaning that reclassifying only 3 outcome events (1.3% of the 235 total events) from the control group to the beta-blocker group would change the p-value from 0.031 to ≥0.05 (non-significant). This represents 0.16% of the total sample size of 1,885 patients.
 
 For context, Walsh et al. recommend a fragility index >5 for minimally robust findings and >10 for practice-changing claims.[30] A fragility index of 3 falls far below these thresholds, indicating extreme statistical instability. The finding hinges on the classification or outcome status of an extraordinarily small number of patients—well within the range of potential adjudication disagreements, coding errors, or chance variation.[31]
+
+We acknowledge that fragility indices are influenced by sample size, and smaller studies will inherently have lower fragility indices than larger ones. However, even accounting for the modest event count (N=235), an FI of 3 represents only 1.3% of observed events—a remarkably low proportion. For comparison, studies with similar sample sizes but more robust findings typically achieve fragility indices of 8-15 events (3-6% of total events).[31] The combination of low absolute FI (3 events) and low proportional FI (1.3%) suggests this finding is unusually fragile even for its sample size, raising questions about whether it should guide practice-changing guideline recommendations.
 
 **Table 2. Fragility Index Analysis**
 
@@ -103,7 +116,7 @@ This null overall effect calls into question whether beta-blockers truly benefit
 
 ### Interpretation of Findings: What Can and Cannot Be Concluded
 
-Our analyses address a specific, focused question: Is there sufficient statistical evidence to support a sharp treatment effect threshold at LVEF=50%? The answer is unequivocally **no**.
+Our analyses address a specific, focused question: Is there sufficient statistical evidence to support a sharp treatment effect threshold at LVEF=50%? Based on available evidence, **we cannot support this claim**.
 
 However, our analyses cannot definitively distinguish between several possible underlying realities:
 

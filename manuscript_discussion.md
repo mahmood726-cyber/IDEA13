@@ -22,7 +22,7 @@ Cross-validation represents a fundamental principle of predictive modeling: find
 
 Our simulations demonstrated the profound benefit of this simple validation step. While 46.8% of standard analyses found questionable thresholds, only 1.5% of these findings survived cross-validation—a 31-fold reduction in false-positive rate. This occurred because random variation differs across trials; a chance finding in trials A+B+C will not consistently replicate in trial D.[43,44]
 
-The beta-blocker researchers had access to IPD from four trials, providing an ideal opportunity for cross-validation. Had they applied leave-one-trial-out validation, the fragility of the EF threshold would have become immediately apparent. We strongly recommend cross-validation as a mandatory step for any subgroup claim proposed for guideline adoption.
+The beta-blocker researchers had access to IPD from four trials, providing an ideal opportunity for cross-validation. Had they applied leave-one-trial-out validation, the fragility of the EF threshold would have become immediately apparent. We encourage journal editors and guideline bodies to consider cross-validation as a recommended validation step for subgroup claims proposed for guideline adoption.
 
 ### The Role of Interaction Testing
 
@@ -70,11 +70,11 @@ Most critically, we did not have access to the individual patient data from the 
 - Examining trial-specific subgroup effects and heterogeneity
 - Definitively determining whether multiple thresholds were tested during analysis
 
-Consequently, our empirical analyses rely on published summary statistics, and our conclusions about overfitting rest primarily on simulation evidence rather than direct re-analysis of the original IPD. However, the analyses we **can** perform using summary data—interaction testing, fragility assessment, and power calculation—are statistically valid and all raise serious concerns about the claimed threshold. Our simulations were carefully calibrated to match the actual trial structure, sample sizes, and event rates.
+Consequently, our empirical analyses rely on published summary statistics, and our conclusions about potential overfitting rest primarily on simulation evidence rather than direct re-analysis of the original IPD. **Most critically, without access to IPD, we cannot perform the gold-standard analysis: modeling LVEF continuously to determine whether treatment effects vary smoothly or exhibit discontinuities.** Our conclusions are therefore **provisional** pending such analyses. However, the analyses we **can** perform using summary data—interaction testing, fragility assessment, and power calculation—are statistically valid and all raise serious concerns about the claimed threshold. Our simulations were carefully calibrated to match the actual trial structure, sample sizes, and event rates.
 
 **Interaction Test Power Limitation**
 
-The test for interaction had only 46% power to detect the observed difference as statistically significant. This limited power means we cannot definitively rule out a true difference in treatment effects between subgroups (Type II error). However, we do not interpret our findings as proving equivalence. Rather, we conclude that **the evidence is insufficient**—whether due to non-significant testing, low power, or both—to support confident subgroup-based treatment recommendations. In this context, the burden of proof for changing clinical practice falls on those claiming a threshold, and that burden requires adequately powered, validated evidence that has not been provided.
+The test for interaction had only 46% power to detect the observed difference as statistically significant. This limited power means we cannot definitively rule out a true difference in treatment effects between subgroups (Type II error). However, we do not interpret our findings as proving equivalence. Rather, we conclude that **the evidence is insufficient**—whether due to non-significant testing, low power, or both—to support confident subgroup-based treatment recommendations. Practice-changing guideline recommendations require adequately powered, validated evidence, which has not yet been provided for this threshold.
 
 **Simulation Assumptions**
 
@@ -109,6 +109,50 @@ Clinicians face several evidence-based options:
 3. **Await validation**: Recognize that the EF threshold hypothesis requires independent replication before changing practice, particularly given its statistical fragility.
 
 Importantly, the overall pooled analysis (HR 0.94, 95% CI 0.85-1.03) suggests that beta-blockers may provide minimal if any benefit in contemporary post-MI patients with LVEF ≥40%, regardless of the specific ejection fraction value. This finding deserves careful consideration and may support a more general re-evaluation of beta-blocker recommendations in this population.
+
+### What Evidence Would Be Convincing?
+
+To establish a genuine LVEF threshold for beta-blocker therapy that could appropriately guide clinical practice guidelines, future research should provide:
+
+**1. Individual Patient Data Analysis with Continuous LVEF Modeling**
+- Model LVEF as a continuous variable using restricted cubic splines (≥3 knots) or fractional polynomials
+- Visually and statistically assess whether treatment effects vary smoothly or exhibit discontinuities
+- Report whether any observed inflection point occurs at the claimed threshold value (EF=50%)
+
+**2. Adequate Statistical Power for Effect Modification**
+- Sample size with ≥80% power to detect clinically meaningful effect modification
+- For the observed difference (HR 0.75 vs 0.97), this would require ~630 events in the lower EF range
+- Power calculation should be reported a priori in study protocols
+
+**3. Internal Cross-Validation**
+- Leave-one-trial-out validation demonstrating the threshold replicates across constituent trials
+- Consistency of the threshold location across validation folds
+- Demonstrate that the finding is not driven by a single trial or small subset of patients
+
+**4. External Validation in Independent Cohorts**
+- Replication in separate patient populations not included in the discovery analysis
+- Ideally from different geographic regions, time periods, or healthcare systems
+- Consistent threshold location and effect magnitudes across validation cohorts
+
+**5. Biological Plausibility**
+- Mechanistic explanation for why beta-blocker effects would discontinuously change at LVEF=50%
+- Evidence from basic science, pathophysiology, or pharmacodynamics supporting the threshold
+- Consideration of measurement error in LVEF assessment (typically 5-10% test-retest variability)
+
+**6. Statistical Robustness**
+- Fragility index >10 for practice-changing claims
+- Significant formal interaction test (p<0.01, accounting for multiple comparisons)
+- Sensitivity analyses showing findings robust to analytic choices
+
+**Current Evidence Status:**
+
+The beta-blocker EF threshold meets **0 of 6** criteria above. Until such evidence emerges, guideline committees face two reasonable options:
+
+- **Option A**: Recommend beta-blockers for all post-MI patients with LVEF ≥40%, acknowledging uncertainty about magnitude of benefit in contemporary practice
+
+- **Option B**: De-emphasize beta-blockers given the overall HR 0.94 (95% CI 0.85-1.03), reserving them for selected high-risk patients based on individual clinical judgment
+
+**We do not recommend** using EF=50% as a treatment decision threshold for withholding beta-blockers based on current evidence.
 
 ### Guideline Development Implications
 
@@ -196,15 +240,17 @@ To elevate methodological standards for subgroup analyses:
 6. **Statistical reporting guidelines** (e.g., CONSORT, PRISMA): Incorporate fragility assessment and validation requirements
 7. **Educational initiatives**: Train clinicians and researchers to critically evaluate subgroup claims using the validation framework
 
-### Immediate Next Steps for the Beta-Blocker EF Threshold
+### Suggested Next Steps for the Beta-Blocker EF Threshold
 
-We specifically call on the investigators of the beta-blocker IPD meta-analyses to:
+We respectfully encourage the investigators of the beta-blocker IPD meta-analyses to consider the following validation analyses, which would substantially clarify whether the EF threshold represents a genuine biological phenomenon:
 
-- **Within 3 months**: Report the formal interaction test p-value and fragility index for the EF threshold
-- **Within 6 months**: Perform and publish leave-one-trial-out cross-validation of the EF=50% threshold
-- **Within 12 months**: Model LVEF continuously using restricted cubic splines and report whether treatment effect varies smoothly or exhibits a discontinuity
+- **Short term** (3-6 months): Share the formal interaction test p-value and fragility index in a correspondence, commentary, or supplementary analysis. These statistics can be calculated from existing data and would help the clinical community assess the threshold's statistical robustness.
 
-These steps would provide the validation evidence necessary to determine whether EF-stratified recommendations should be incorporated into clinical practice guidelines.
+- **Medium term** (6-12 months): Perform internal cross-validation (leave-one-trial-out) to test whether the EF=50% threshold replicates across the four constituent trials. We recognize this requires re-analysis of IPD but represents a critical validation step.
+
+- **Longer term** (12-18 months): Model LVEF continuously using restricted cubic splines or fractional polynomials to determine whether treatment effects vary smoothly or exhibit genuine discontinuities at specific EF values. This gold-standard analysis would definitively address the threshold question.
+
+We recognize these analyses require substantial effort and may reveal complex patterns not captured by simple threshold models. Collaborative sharing of IPD with independent analysts—through established data-sharing platforms or consortia—could accelerate this validation process while maintaining scientific rigor. The clinical community would benefit greatly from such collaborative efforts to resolve this important uncertainty.
 
 ---
 
@@ -214,7 +260,7 @@ The proposed ejection fraction threshold for beta-blocker therapy after myocardi
 
 Adoption of EF-stratified beta-blocker recommendations would be premature based on current evidence. More broadly, our findings illustrate how even high-quality individual patient data meta-analyses can produce questionable subgroup claims when standard analytical practices are not supplemented with rigorous validation procedures. We propose a three-level validation framework (Figure 5) to evaluate the credibility of future subgroup claims before they inform clinical practice.
 
-The stakes are high: millions of patients worldwide may be affected by guideline recommendations based on statistical artifacts. Elevating the standard of evidence for subgroup claims—through mandatory interaction testing, fragility assessment, and cross-validation—represents an achievable step toward more reliable, patient-centered clinical practice guidelines.
+The stakes are high: millions of patients worldwide may be affected by guideline recommendations based on questionable subgroup findings. Elevating the standard of evidence for subgroup claims—through recommended requirements for interaction testing, fragility assessment, and cross-validation—represents an achievable step toward more reliable, patient-centered clinical practice guidelines.
 
 ---
 
