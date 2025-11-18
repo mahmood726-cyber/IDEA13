@@ -2,7 +2,7 @@
 
 ## Overview
 
-We conducted a two-part validation analysis to evaluate the statistical robustness of the proposed ejection fraction threshold for beta-blocker efficacy after myocardial infarction. Part 1 (Empirical Analysis) used published summary data from two companion IPD meta-analyses to perform formal statistical tests. Part 2 (Simulation Study) generated synthetic datasets matching the original trial structure to quantify false-positive rates under controlled conditions where no true threshold existed.
+We conducted a two-part validation analysis. Part 1 (Empirical) used published summary data from two companion IPD meta-analyses to perform formal statistical tests. Part 2 (Simulation) generated synthetic datasets matching the original trial structure to quantify false-positive rates when no true threshold existed.
 
 ---
 
@@ -10,209 +10,80 @@ We conducted a two-part validation analysis to evaluate the statistical robustne
 
 ### Data Sources
 
-We extracted summary statistics from two published individual patient data meta-analyses:
+We extracted summary statistics from two published IPD meta-analyses:[8,9]
 
-1. **EF 40-49% meta-analysis**: Rossello et al., *The Lancet*, August 30, 2025.[8] This analysis included 1,885 patients (991 assigned to beta-blockers, 894 to control) with 235 primary endpoint events (composite of death from any cause, myocardial infarction, or heart failure).
+1. **EF 40-49%**: 1,885 patients (991 beta-blockers, 894 control), 235 events (death, MI, or heart failure)[8]
+2. **EF ≥50%**: 17,801 patients (8,831 beta-blockers, 8,970 control), 1,465 events[9]
 
-2. **EF ≥50% meta-analysis**: NEJM, November 9, 2025.[9] This analysis included 17,801 patients (8,831 assigned to beta-blockers, 8,970 to control) with 1,465 primary endpoint events (same composite endpoint).
-
-Both meta-analyses drew from the same pool of contemporary randomized trials (REBOOT, BETAMI, DANBLOCK, and CAPITAL-RCT). For each meta-analysis, we extracted the hazard ratio, 95% confidence interval, number of patients, and number of events from the published manuscripts.
+Both drew from the same contemporary trials (REBOOT, BETAMI, DANBLOCK, CAPITAL-RCT).
 
 ### Statistical Analyses
 
-#### Test for Interaction
+**Test for Interaction:** We calculated the formal interaction test to evaluate whether treatment effects differed significantly between EF subgroups using standard errors derived from published 95% CIs: SE = [log(CI_upper) - log(CI_lower)] / (2×1.96). The test statistic Z = [log(HR₁) - log(HR₂)] / √(SE₁² + SE₂²) provides the appropriate assessment of differential effects.[35,36]
 
-We performed the formal statistical test for interaction to evaluate whether the treatment effects differed significantly between the EF 40-49% and EF ≥50% subgroups. This is the appropriate test for assessing whether a subgroup effect exists and is superior to comparing p-values from separate analyses.[35,36]
+**Fragility Index:** We calculated the minimum number of outcome events requiring reclassification to change the EF 40-49% result from significant (p<0.05) to non-significant (p≥0.05).[30,31] Starting with the observed 2×2 contingency table, we iteratively transferred events from control to beta-blocker groups, recalculating chi-square p-values after each transfer. Fragility index ≤5 indicates extreme statistical instability.[30,31]
 
-We calculated the standard errors of the log hazard ratios from the published 95% confidence intervals:
+**Power Analysis:** Using Schoenfeld's method for Cox regression,[32] we calculated power to detect clinically meaningful hazard ratios: Power = Φ[√(E/4) × |log(HR_true)| - 1.96], where E is the number of events (235). We determined events required for 80% power to detect HR=0.80.
 
-$$SE = \frac{\log(CI_{upper}) - \log(CI_{lower})}{2 \times 1.96}$$
+**Interaction Test Power:** We calculated power of the interaction test itself using: Power = Φ[(|Δ|/SE_Δ) - 1.96], where Δ is the observed difference in log hazard ratios and SE_Δ = √(SE₁² + SE₂²). This addresses whether non-significant interaction reflects true equivalence or Type II error.
 
-The test statistic for interaction was:
-
-$$Z = \frac{\log(HR_1) - \log(HR_2)}{\sqrt{SE_1^2 + SE_2^2}}$$
-
-where $HR_1$ and $HR_2$ are the hazard ratios for the EF 40-49% and EF ≥50% groups, respectively. The two-tailed p-value was calculated as $p = 2 \times \Phi(-|Z|)$, where $\Phi$ is the standard normal cumulative distribution function.
-
-A p-value <0.05 would indicate statistically significant heterogeneity of treatment effect between subgroups, providing evidence for a differential effect. A p-value ≥0.05 indicates no statistical evidence that the treatment effects differ.
-
-#### Fragility Index
-
-The fragility index quantifies the minimum number of outcome events that would need to be reclassified to change a statistically significant result (p<0.05) to non-significant (p≥0.05).[30,31] We calculated the fragility index for the EF 40-49% finding using the method of Walsh et al.[30]
-
-Starting with the observed 2×2 contingency table (events in beta-blocker group vs. control group), we iteratively transferred one event from the control group to the beta-blocker group and recalculated the chi-square p-value after each transfer. The fragility index is the number of events that must be transferred before p≥0.05.
-
-A fragility index ≤5 is considered indicative of extreme statistical instability; values >10 are recommended for practice-changing claims.[30,31]
-
-#### Power Analysis
-
-We assessed the statistical power of the EF 40-49% subgroup analysis to detect clinically meaningful treatment effects. Using Schoenfeld's method for Cox regression,[32] we calculated the power for detecting various true hazard ratios:
-
-$$\text{Power} = \Phi\left(\sqrt{\frac{E}{4}} \times |\log(HR_{true})| - Z_{\alpha/2}\right)$$
-
-where $E$ is the number of events (235), $Z_{\alpha/2}$ is the critical value for a two-sided test at $\alpha=0.05$ (1.96), and $\Phi$ is the standard normal CDF.
-
-We calculated power for assumed true hazard ratios ranging from 0.70 to 0.90. We also determined the number of events required to achieve 80% power for detecting HR=0.80, a commonly cited threshold for clinically meaningful benefit.
-
-The required number of events for 80% power is:
-
-$$E_{required} = 4 \times \left(\frac{Z_{\alpha/2} + Z_{\beta}}{|\log(HR)|}\right)^2$$
-
-where $Z_{\beta}$ = 0.84 for 80% power.
-
-#### Power of the Interaction Test
-
-We also calculated the statistical power of the interaction test itself—the test comparing treatment effects between the EF 40-49% and EF ≥50% subgroups. This is a critical but often-overlooked consideration: a non-significant interaction test could reflect either (a) truly equivalent effects, or (b) insufficient power to detect a difference (Type II error).
-
-The power to detect a specified difference in log hazard ratios as statistically significant is:
-
-$$\text{Power}_{\text{interaction}} = \Phi\left(\frac{|\Delta|}{SE_{\Delta}} - Z_{\alpha/2}\right)$$
-
-where $\Delta = \log(HR_1) - \log(HR_2)$ is the difference in log hazard ratios between subgroups, and:
-
-$$SE_{\Delta} = \sqrt{SE_1^2 + SE_2^2}$$
-
-For the observed difference ($\Delta$ = -0.257) with SE$_{\Delta}$ = 0.141, and $Z_{\alpha/2}$ = 1.96 for a two-sided test at α=0.05, we calculated the power to detect this difference as statistically significant.
-
-This calculation acknowledges that our interaction test has limited power, and therefore a p-value ≥0.05 should be interpreted as "insufficient evidence" rather than "proof of no difference." When evidence is limited, the burden of proof falls on those claiming a threshold effect.
-
-#### Overall Pooled Effect
-
-We combined both EF ranges (40-49% and ≥50%) in a fixed-effect meta-analysis to estimate the overall treatment effect across the entire ejection fraction spectrum from 40% to 100%. We used inverse-variance weighting:
-
-$$\log(HR_{pooled}) = \frac{\sum w_i \times \log(HR_i)}{\sum w_i}$$
-
-where $w_i = 1/SE_i^2$ are the inverse-variance weights. The pooled 95% confidence interval was calculated as:
-
-$$\exp\left(\log(HR_{pooled}) \pm 1.96 \times \sqrt{1/\sum w_i}\right)$$
-
-### Software
-
-All empirical analyses were conducted using Python 3.11 (Python Software Foundation) with standard statistical libraries. Code is available at [GitHub repository to be added upon publication].
+**Overall Pooled Effect:** We combined both EF ranges (40-49% and ≥50%) using inverse-variance weighted fixed-effect meta-analysis to estimate overall treatment effect across the entire EF spectrum from 40% onward.
 
 ---
 
 ## Part 2: Simulation Study
 
-### Simulation Design
+### Design
 
-We generated 10,000 synthetic individual patient data meta-analyses, each designed to match the key structural features of the EF 40-49% meta-analysis:[8]
+We generated 10,000 synthetic IPD meta-analyses matching the original structure:
+- 4 trials with sample size distribution proportional to actual trials (52%, 22%, 23%, 3%)
+- 1,885 total patients per simulation
+- Target ~235 events (12.5% event rate)
+- LVEF sampled from truncated normal (mean 45%, SD 2.5%, range 40-49.9%)
 
-- **Number of trials**: 4 (matching REBOOT, BETAMI, DANBLOCK, CAPITAL-RCT)
-- **Sample size distribution**: Proportional to the original trials (52%, 22%, 23%, 3%)
-- **Total patients**: 1,885 per simulated meta-analysis
-- **Target events**: Approximately 235 (to match observed event rate of ~12.5%)
+**Crucially**, we programmed a **smooth, continuous decline** in beta-blocker effect as LVEF increased, with **no threshold**:
 
-### Data Generation Process
+log(HR(EF)) = -0.287 + 0.0182 × (EF - 40)
 
-For each simulated meta-analysis:
+This produces HR=0.70 at EF=40% declining linearly to HR=0.90 at EF=50%, with no discontinuities.
 
-1. **Trial assignment**: Each patient was randomly assigned to one of four trials with probabilities matching the original meta-analyses.
+### Sensitivity Analysis: Six Alternative Models
 
-2. **Ejection fraction**: Each patient's LVEF was sampled from a truncated normal distribution with mean 45%, standard deviation 2.5%, bounded between 40% and 49.9% (matching the EF 40-49% range).
+To test robustness, we repeated simulations under six different true effect models:
 
-3. **Treatment assignment**: Each patient was randomly assigned to beta-blocker or control with equal probability (50/50).
+- **Model 1 (Primary):** Linear decline (HR 0.70→0.90)
+- **Model 2:** Quadratic (accelerating decline)
+- **Model 3:** Gentle threshold at EF=47% (HR 0.70 below, 0.90 above)
+- **Model 4:** Complete null (HR=1.0 at all EF)
+- **Model 5:** Random heterogeneous effects across trials
+- **Model 6:** True threshold at EF=50% (HR 0.75 below, 0.97 above) - **matching observed data**
 
-4. **True underlying effect model**: Crucially, we programmed a smooth, continuous decline in beta-blocker effect as LVEF increased, with **no sharp threshold at any specific value**:
-
-$$\log(HR(EF)) = -0.287 + 0.0182 \times (EF - 40)$$
-
-This equation produces HR=0.70 at EF=40%, declining linearly to HR=0.90 at EF=50%. The model has no discontinuities and represents a gradual, continuous relationship—the biological null hypothesis that no sharp threshold exists.
-
-5. **Survival time generation**: Event times were generated from an exponential distribution with hazard rate $\lambda = \lambda_0 \times \exp(\beta \times treatment)$, where $\lambda_0 = 0.038$ (baseline annual rate) and $\beta = \log(HR(EF))$ varies continuously with each patient's ejection fraction. Censoring times were generated from an exponential distribution with mean 3.5 years (matching median follow-up).
-
-### Sensitivity Analysis: Alternative True Effect Models
-
-To test whether our findings were robust to assumptions about the true functional form of the treatment effect-LVEF relationship, we repeated the simulation study using five different true effect models:
-
-**Model 1: Linear decline (primary analysis)**
-
-$$\log(HR(EF)) = -0.287 + 0.0182 \times (EF - 40)$$
-
-HR declines linearly from 0.70 at EF=40% to 0.90 at EF=50%.
-
-**Model 2: Quadratic (accelerating decline)**
-
-$$\log(HR(EF)) = -0.287 + 0.0091 \times (EF - 40) + 0.00091 \times (EF - 40)^2$$
-
-HR decline accelerates as EF increases, representing a convex relationship where benefit diminishes more rapidly at higher LVEF values.
-
-**Model 3: Gentle threshold at EF=47%**
-
-$$\log(HR(EF)) = \begin{cases} -0.357 & \text{if } EF < 47\% \\ -0.107 & \text{if } EF \geq 47\% \end{cases}$$
-
-Represents HR=0.70 below 47%, HR=0.90 above 47%—a true but modest discontinuity. This tests whether genuine thresholds can be distinguished from noise.
-
-**Model 4: Complete null (no effect)**
-
-$$\log(HR(EF)) = 0 \text{ for all } EF$$
-
-HR=1.0 at all LVEF values, representing the scenario where beta-blockers provide no benefit at any ejection fraction.
-
-**Model 5: Random heterogeneous effects**
-
-$$\log(HR(EF)) \sim \text{Uniform}(-0.357, -0.107) \text{ independently for each trial}$$
-
-Heterogeneous treatment effects across trials with no systematic LVEF relationship, representing the scenario where differences across trials reflect random variation rather than a biological gradient.
-
-**Model 6: True threshold at EF=50% (matching observed data)**
-
-$$\log(HR(EF)) = \begin{cases} -0.2877 & \text{if } EF < 50\% \\ -0.0305 & \text{if } EF \geq 50\% \end{cases}$$
-
-Represents HR=0.75 below 50%, HR=0.97 at or above 50%—precisely matching the pattern observed in the empirical data from the two meta-analyses. This model tests whether cross-validation can successfully detect and validate a TRUE threshold when one genuinely exists at the claimed location. While Models 1-5 assess specificity (ability to reject false thresholds), Model 6 assesses sensitivity (ability to detect true thresholds), providing a complete evaluation of the validation approach's diagnostic performance.
-
-For each model, we generated 10,000 simulated meta-analyses and calculated false-positive rates using the same four analytical methods. This sensitivity analysis addresses the concern that our findings might depend on assuming a specific functional form and allows us to assess robustness across diverse scenarios including true thresholds, null effects, and random heterogeneity.
+Model 6 tests **sensitivity**: can cross-validation detect TRUE thresholds when they exist? Models 1-5 test **specificity**: can it reject false thresholds? (Full model equations in supplementary materials)
 
 ### Analytical Methods Applied to Simulated Data
 
-We applied four different analytical strategies to each of the 10,000 simulated datasets:
+We applied four strategies to each of 10,000 simulated datasets:
 
-#### Method 1: Multiple Threshold Testing (Standard Practice)
+**Method 1: Multiple Threshold Testing (Standard Practice)**
+Tested 13 thresholds (42-48%, every 0.5%). Recorded whether **any** threshold showed significant benefit (p<0.05) in the "low EF" group using Cox models. False-positive rate = proportion where ≥1 threshold yielded p<0.05 despite no true threshold.
 
-We tested for treatment benefit in the "low EF" group using 13 different thresholds: 42%, 42.5%, 43%, ..., 48% (every 0.5% from 42% to 48%). For each threshold, we dichotomized patients into "low EF" (below threshold) and "high EF" (at or above threshold), then tested whether the low EF group showed significant benefit (two-sided p<0.05) using a Cox proportional hazards model.
+**Method 2: Single Interaction Test**
+Tested interaction at pre-specified EF=45% (midpoint). False-positive rate = proportion with interaction p<0.05.
 
-We recorded whether **any** of the 13 thresholds produced a "significant" result (p<0.05). This mimics the common practice of testing multiple cutpoints to identify a "significant" threshold, whether explicitly reported or not.
+**Method 3: Continuous Modeling**
+Modeled EF continuously (treatment × EF interaction). False-positive rate = proportion with continuous interaction p<0.05.
 
-**False-positive rate**: Proportion of the 10,000 simulations where at least one threshold yielded p<0.05, despite the true model having no threshold.
+**Method 4: Cross-Validation (Gold Standard)**
+Leave-one-trial-out validation:
+1. Combine three trials (training)
+2. Find threshold (42-48%) with smallest p-value in training set
+3. Test discovered threshold in held-out fourth trial
+4. Repeat for all four trials
+False-positive rate = proportion where discovered threshold validated (p<0.05) in ≥1 held-out trial.
 
-#### Method 2: Single Interaction Test (Pre-Specified Threshold)
+### Software
 
-We tested for interaction between treatment and EF group using a single pre-specified threshold at EF=45% (the midpoint of the 40-50% range). We fit a Cox model including the interaction term `treatment × (EF<45)` and recorded the p-value for the interaction coefficient.
-
-**False-positive rate**: Proportion of simulations with interaction p<0.05.
-
-#### Method 3: Continuous Modeling (Correct Approach)
-
-We modeled EF as a continuous variable and tested whether treatment effect varied with EF. We fit a Cox model including the interaction term `treatment × EF` (continuous) and recorded the p-value for the interaction coefficient.
-
-**False-positive rate**: Proportion of simulations with interaction p<0.05. Under correct specification (EF truly continuous), this should detect the non-zero slope, but in our simulations, we varied the strength of the continuous relationship to include truly null scenarios as well.
-
-#### Method 4: Cross-Validation (Gold Standard)
-
-We performed leave-one-trial-out cross-validation:
-
-1. **Training set**: Combine three of the four trials
-2. **Discovery**: Find the threshold (42-48%, tested every 0.5%) that produces the smallest p-value in the "low EF" group in the training set
-3. **Test set**: Apply the discovered threshold to the held-out fourth trial
-4. **Validation**: Test whether the low EF group in the test set also shows significant benefit (p<0.05)
-
-We repeated this procedure four times, leaving out each trial in turn. A spurious threshold "validates" if it shows p<0.05 in at least one held-out trial.
-
-**False-positive rate**: Proportion of simulations where the discovered threshold validated in held-out data.
-
-### Outcome Measures
-
-For each method, we calculated:
-
-1. **False-positive rate**: Proportion of 10,000 simulations declaring a "significant" threshold despite none existing in the true data-generating model
-2. **Distribution of discovered thresholds**: Among simulations where a threshold was found, what EF values were selected? (Should be uniform if purely noise)
-3. **P-value distributions**: Distribution of the smallest p-values across methods
-
-### Statistical Software
-
-Simulations were conducted in Python 3.11 using NumPy 1.24 for random number generation, SciPy 1.10 for statistical functions, and lifelines 0.27 for survival analysis. Each simulation run took approximately 2 hours on a standard desktop computer (Intel Core i7, 16GB RAM). Reproducibility was ensured by setting random seeds.
-
-All code and simulation results are publicly available at [GitHub repository].
+Empirical analyses used Python 3.11 with standard statistical libraries. Simulations used NumPy 1.24, SciPy 1.10, and lifelines 0.27. Code available at [GitHub repository].
 
 ---
 
@@ -222,24 +93,6 @@ This study used only published summary data and simulated data. No individual pa
 
 ---
 
-## Data Availability
+**Word Count:** ~790 words
 
-All data extracted from published sources are provided in the supplementary materials. Simulation code and complete results are available at [repository link].
-
----
-
-## Role of the Funding Source
-
-No specific funding was received for this study. The authors had full access to all data and take responsibility for the integrity and accuracy of the analysis.
-
----
-
-**Word Count:** ~1,550 words
-
-**Key Elements:**
-- ✓ Clear description of data sources
-- ✓ Detailed statistical methods with equations
-- ✓ Simulation design fully specified
-- ✓ All four analytical methods explained
-- ✓ Software and reproducibility details
-- ✓ Ethical considerations
+**Note:** Detailed equation derivations, simulation parameter justifications, and step-by-step calculation examples provided in supplementary materials.
