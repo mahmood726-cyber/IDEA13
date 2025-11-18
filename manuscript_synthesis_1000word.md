@@ -6,17 +6,17 @@
 
 ## Background and Objective
 
-Recent individual patient data (IPD) meta-analyses published in *The Lancet* and *NEJM* in 2025 proposed that beta-blocker efficacy after myocardial infarction depends sharply on left ventricular ejection fraction (LVEF), with benefit limited to patients with EF 40-49% but not those with EF ≥50%.[1,2] This threshold claim—if valid—would affect treatment decisions for millions of patients worldwide and has prompted calls for guideline revisions. However, the proposed discontinuity at EF=50% is biologically implausible, and the statistical methodology raises concerns about data-dependent threshold selection and overfitting. We conducted a comprehensive validation study combining empirical analysis of the published findings with simulation studies to determine whether the EF threshold represents genuine biological heterogeneity or a statistical artifact.
+Recent individual patient data (IPD) meta-analyses published in *The Lancet* and *NEJM* in 2025 proposed that beta-blocker efficacy after myocardial infarction depends sharply on left ventricular ejection fraction (LVEF), with benefit limited to patients with EF 40-49% but not those with EF ≥50%.[1,2] This threshold claim would affect millions of patients worldwide and has prompted guideline revision calls. However, the proposed discontinuity at EF=50% is biologically implausible, raising concerns about data-dependent threshold selection and overfitting. We conducted a validation study combining empirical analysis with simulation to determine whether the EF threshold represents genuine biological heterogeneity or statistical artifact.
 
 ## Methods
 
 ### Part A: Empirical Validation
 
-We systematically evaluated the beta-blocker EF threshold using published summary statistics from the 2025 IPD meta-analyses (N=19,686 patients, 1,700 events). We applied four statistical robustness tests: (1) **Formal interaction test**: We calculated the test for treatment-by-subgroup interaction to determine whether hazard ratios in EF 40-49% versus EF ≥50% significantly differed; (2) **Fragility index**: We determined how many outcome events would need to change status to reverse the statistical significance of the EF 40-49% finding; (3) **Power analysis**: We assessed whether the analysis had adequate statistical power (≥80%) to detect the observed treatment effect; and (4) **Overall pooled effect**: We combined both subgroups to evaluate beta-blocker efficacy across the entire LVEF ≥40% population.
+We evaluated the beta-blocker EF threshold using published summary statistics from the 2025 IPD meta-analyses (N=19,686 patients, 1,700 events). We applied four statistical robustness tests: (1) **Formal interaction test** to determine whether hazard ratios significantly differed between subgroups; (2) **Fragility index** to assess how many events would need to change to reverse significance; (3) **Power analysis** to determine if the analysis was adequately powered; and (4) **Overall pooled effect** combining both subgroups.
 
 ### Part B: Simulation Study
 
-To quantify false-positive rates when testing multiple EF thresholds, we simulated 10,000 IPD meta-analyses matching the structure of the beta-blocker studies (4 trials, realistic sample sizes and event rates). Critically, we generated data under a **true null model** where no EF threshold existed and treatment effects varied smoothly and continuously with LVEF. We then applied typical threshold-testing procedures: testing 13 candidate cutpoints (EF 42-48% in 0.5% increments) and recording the "most significant" threshold. We compared four analytical approaches: (1) multiple threshold testing (standard practice), (2) single interaction test, (3) continuous LVEF modeling, and (4) cross-validation using leave-one-trial-out validation to test whether discovered thresholds replicated across trials. The primary outcome was the false-positive rate—the proportion of analyses incorrectly identifying a threshold when none truly existed.
+To quantify false-positive rates, we simulated 10,000 IPD meta-analyses matching the beta-blocker study structure (4 trials, realistic sample sizes). Critically, we generated data under a **true null model** where no EF threshold existed. We tested 13 candidate cutpoints (EF 42-48% in 0.5% increments) and compared four analytical approaches: (1) multiple threshold testing, (2) single interaction test, (3) continuous LVEF modeling, and (4) cross-validation using leave-one-trial-out validation. The primary outcome was false-positive rate—the proportion of analyses incorrectly identifying a threshold when none existed.
 
 All analyses used R version 4.3.1 and Python 3.11. Complete code and data are available at [repository].
 
@@ -24,13 +24,13 @@ All analyses used R version 4.3.1 and Python 3.11. Complete code and data are av
 
 ### Empirical Validation: Four Tests, Four Failures
 
-**Test 1 – Interaction Test: FAILED (p=0.069).** The formal test for treatment-by-subgroup interaction was non-significant (Z=-1.819, p=0.069), providing no statistical evidence that beta-blocker effects differ between EF 40-49% (HR 0.75, 95% CI 0.58-0.97) and EF ≥50% (HR 0.97, 95% CI 0.87-1.07). The confidence intervals substantially overlap (Figure 1).
+**Test 1 – Interaction Test: FAILED (p=0.069).** The formal test for treatment-by-subgroup interaction was non-significant (Z=-1.819, p=0.069), with only 46% statistical power to detect the observed difference. This provides no statistical evidence that beta-blocker effects differ between EF 40-49% (HR 0.75, 95% CI 0.58-0.97) and EF ≥50% (HR 0.97, 95% CI 0.87-1.07). The confidence intervals substantially overlap (Figure 1).
 
 **Test 2 – Fragility Index: FAILED (FI=3).** The EF 40-49% finding was extremely fragile: changing the outcome status of only 3 events (1.28% of the 235 total events) would reverse statistical significance from p<0.05 to p≥0.05. Practice-changing claims should have fragility indices >10.
 
 **Test 3 – Statistical Power: FAILED (40%).** The EF 40-49% analysis had only 40% power to detect a hazard ratio of 0.80, far below the recommended 80% threshold. Achieving 80% power would require 630 events—168% more than observed (235 events).
 
-**Test 4 – Overall Effect: NEGATIVE.** When both EF subgroups were pooled, beta-blockers showed no significant benefit (HR 0.94, 95% CI 0.85-1.03, p=0.18), casting doubt on efficacy across the entire LVEF spectrum.
+**Test 4 – Overall Effect: FAILED.** When both EF subgroups were pooled, beta-blockers showed no significant benefit (HR 0.94, 95% CI 0.85-1.03, p>0.05), casting doubt on efficacy across the entire LVEF spectrum.
 
 **Summary:** The EF threshold **failed all four validation tests (0/4)**, indicating the finding lacks statistical robustness.
 
@@ -43,31 +43,31 @@ When we simulated 10,000 meta-analyses under conditions where **no true EF thres
 - **Continuous LVEF modeling**: 5.8% false-positive rate
 - **Cross-validation (leave-one-trial-out)**: 1.5% false-positive rate—a **31-fold improvement** over standard methods
 
-The "discovered" thresholds showed no clustering at any particular EF value; they were distributed essentially randomly across the tested range (EF 42-48%), confirming they reflected noise rather than signal. Importantly, 98.5% of questionable thresholds were correctly rejected by cross-validation, while 68.7% of true thresholds (when simulated) were successfully detected—demonstrating both high specificity and reasonable sensitivity.
+The "discovered" thresholds showed no clustering at any particular EF value; they were distributed essentially randomly across the tested range (EF 42-48%), confirming they reflected noise rather than signal. Importantly, 98.5% of spurious thresholds were correctly rejected by cross-validation, while in a separate simulation with genuine thresholds, 68.7% were successfully detected—demonstrating both high specificity and reasonable sensitivity.
 
 These results explain how the beta-blocker EF threshold could arise: when researchers test multiple cutpoints on continuous variables—enabled by the flexibility inherent in dichotomization—spurious thresholds emerge frequently even in high-quality IPD meta-analyses (Figure 2).
 
 ## Discussion and Implications
 
-Our findings demonstrate that the proposed EF=50% threshold for beta-blocker efficacy lacks statistical validation and likely represents a Type I error resulting from underpowered subgroup analysis and data-dependent threshold selection. The combination of (1) non-significant interaction testing, (2) extreme fragility, (3) inadequate power, (4) no overall benefit, and (5) simulation evidence of 47% false-positive rates with standard methods—all point toward a statistical artifact rather than genuine biology.
+Our findings demonstrate that the proposed EF=50% threshold for beta-blocker efficacy lacks statistical validation and likely represents a Type I error resulting from underpowered subgroup analysis and data-dependent threshold selection. The combination of (1) non-significant interaction testing, (2) extreme fragility, (3) inadequate power, (4) no overall benefit, and (5) simulation evidence of 46.8% false-positive rates with standard methods—all point toward a statistical artifact rather than genuine biology.
 
 ### Clinical Implications
 
-Guideline committees should **not** adopt EF-stratified beta-blocker recommendations based on current evidence. The threshold has not been validated through cross-validation or independent replication. Clinicians face two evidence-based options: (1) continue prescribing beta-blockers to post-MI patients with LVEF ≥40% based on historical evidence, acknowledging uncertainty in contemporary populations; or (2) individualize decisions recognizing that overall contemporary evidence suggests minimal benefit (HR 0.94) regardless of EF.
+Guideline committees should **not** adopt EF-stratified beta-blocker recommendations based on current evidence. The threshold has not been validated. Clinicians may: (1) continue prescribing beta-blockers to post-MI patients with LVEF ≥40% based on historical evidence, acknowledging uncertainty; or (2) individualize decisions recognizing minimal overall benefit (HR 0.94) regardless of EF.
 
 ### Methodological Implications
 
-Even high-quality IPD meta-analyses—often considered the "gold standard"—can produce questionable subgroup findings when validation procedures are not applied. We propose a three-level validation framework requiring: **Level 1** (Minimum)—pre-specification, biological plausibility, significant interaction test (p<0.05); **Level 2** (Robustness)—adequate power (≥80%), fragility index >5, sufficient information size; **Level 3** (Validation)—cross-validation in held-out data or independent external replication. The beta-blocker threshold **failed 7/8 criteria** (0/8 if not pre-specified), illustrating how this framework identifies unreliable claims.
+Even high-quality IPD meta-analyses—often considered the "gold standard"—can produce questionable subgroup findings when validation procedures are not applied. We propose a three-level validation framework requiring: **Level 1** (Minimum)—pre-specification, biological plausibility, significant interaction test (p<0.05); **Level 2** (Robustness)—adequate power (≥80%), fragility index >5, sufficient information size; **Level 3** (Validation)—cross-validation in held-out data or independent external replication. The beta-blocker threshold **failed 7 or 8 of 8 criteria** (depending on whether pre-specified), illustrating how this framework identifies unreliable claims.
 
 ### Recommendations
 
-We call on the original beta-blocker IPD investigators to: (1) perform leave-one-trial-out cross-validation to test whether the EF=50% threshold replicates across constituent trials; (2) model LVEF continuously using restricted cubic splines to determine whether treatment effects exhibit true discontinuities or vary smoothly; and (3) report the formal interaction test p-value and fragility index to inform the clinical community.
+We call on the original investigators to: (1) perform leave-one-trial-out cross-validation; (2) model LVEF continuously using restricted cubic splines; and (3) report the interaction test p-value and fragility index.
 
-For the research community: Journal editors should require interaction tests, fragility assessment, and power calculations for all subgroup analyses. Guideline committees should mandate cross-validation or external replication for practice-changing subgroup claims. The stakes are high: millions of patients may be affected by guideline recommendations based on statistical artifacts.
+For the research community: Journal editors should require interaction tests, fragility assessment, and power calculations for all subgroup analyses. Guideline committees should mandate cross-validation or external replication for practice-changing claims. Millions of patients may be affected by recommendations based on statistical artifacts.
 
 ## Conclusions
 
-The ejection fraction threshold for beta-blocker therapy after myocardial infarction does not meet criteria for statistical robustness and appears to represent overfitting rather than genuine treatment heterogeneity. Our simulations demonstrate that spurious thresholds arise in 47% of analyses when continuous variables are dichotomized without validation—but cross-validation reduces this rate 31-fold. Adoption of EF-stratified beta-blocker recommendations would be premature. More broadly, these findings illustrate that even high-quality IPD meta-analyses require rigorous validation procedures before subgroup claims inform clinical practice guidelines.
+The ejection fraction threshold for beta-blocker therapy after myocardial infarction does not meet criteria for statistical robustness and appears to represent overfitting rather than genuine treatment heterogeneity. Our simulations demonstrate that spurious thresholds arise in 46.8% of analyses when continuous variables are dichotomized without validation—but cross-validation reduces this rate 31-fold. Adoption of EF-stratified beta-blocker recommendations would be premature. More broadly, these findings illustrate that even high-quality IPD meta-analyses require rigorous validation procedures before subgroup claims inform clinical practice guidelines.
 
 ---
 
@@ -81,7 +81,7 @@ The ejection fraction threshold for beta-blocker therapy after myocardial infarc
 | Overall pooled HR | 0.94 (0.85-1.03) | No significant benefit |
 | **Validation score** | **0/4 tests passed** | **Complete failure** |
 | **Simulation false-positive** | **46.8%** | Nearly half of analyses misleading |
-| **Cross-validation benefit** | **31-fold improvement** | Reduces false-positives from 47% to 1.5% |
+| **Cross-validation benefit** | **31-fold improvement** | Reduces false-positives from 46.8% to 1.5% |
 
 ---
 
@@ -95,7 +95,7 @@ Results from 10,000 simulated IPD meta-analyses where **no true ejection fractio
 
 ---
 
-**Word Count:** 998 words (excluding title, tables, and figure legends)
+**Word Count:** 961 words (excluding title, tables, and figure legends)
 
 **Conflicts of Interest:** None declared.
 
