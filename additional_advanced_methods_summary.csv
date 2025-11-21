@@ -1,0 +1,12 @@
+Method,Key Finding,Supports Threshold?
+1. Bayesian Interaction,"BF=5.3, 66% prob meaningful interaction",Uncertain
+2. Trial Sequential Analysis,"37% information fraction, premature",No
+3. Prediction Intervals,5.9% replication probability,No
+4. Model Comparison,44% vs 44% (indistinguishable),Cannot distinguish
+5. Multiverse Analysis,0/8 variants pass criteria,No
+6. Restricted Cubic Splines,Best: Threshold at LVEF=50%... (98%),Yes
+7. Change Point Detection,28% prob at LVEF=50%,No
+8. E-values,E-value for interaction: 1.0,Moderate robustness
+9. P-curve Analysis,Insufficient data: No p-values < 0.05 fo,Inconclusive
+10. Sequential Bayes Factors,"Final BF=21.2, never reached >10",Uncertain
+11. Equivalence Testing,"Not equivalent, not different",Inconclusive
