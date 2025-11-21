@@ -1,0 +1,6 @@
+Method,Key Finding,Supports Threshold?
+Bayesian Interaction,66% prob meaningful interaction,Insufficient evidence
+Trial Sequential Analysis,37% information fraction,No - premature
+Prediction Interval,6% replication probability,No - uncertain replication
+Bayesian Model Comparison,Cannot distinguish models,No - model uncertainty
+Multiverse Analysis,0% robust,No - not robust
