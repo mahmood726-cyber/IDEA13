@@ -21,13 +21,13 @@ Both drew from the same contemporary trials (REBOOT, BETAMI, DANBLOCK, CAPITAL-R
 
 **Test for Interaction:** We calculated the formal interaction test to evaluate whether treatment effects differed significantly between EF subgroups using standard errors derived from published 95% CIs: SE = [log(CI_upper) - log(CI_lower)] / (2×1.96). The test statistic Z = [log(HR₁) - log(HR₂)] / √(SE₁² + SE₂²) provides the appropriate assessment of differential effects.[35,36]
 
-**Fragility Index:** We calculated the minimum number of outcome events requiring reclassification to change the EF 40-49% result from significant (p<0.05) to non-significant (p≥0.05).[30,31] Starting with the observed 2×2 contingency table, we iteratively transferred events from control to beta-blocker groups, recalculating chi-square p-values after each transfer. Fragility index ≤5 indicates extreme statistical instability.[30,31]
+**Fragility Index:** We calculated the minimum number of outcome events requiring reclassification to change the EF 40-49% result from significant (p<0.05) to non-significant (p≥0.05).[30,31] Starting with the observed 2×2 contingency table (events by treatment group), we iteratively transferred events from control to beta-blocker groups, recalculating chi-square p-values after each transfer using the Pearson chi-square test for 2×2 tables. Fragility index ≤5 indicates extreme statistical instability.[30,31]
 
 **Power Analysis:** Using Schoenfeld's method for Cox regression,[32] we calculated power to detect clinically meaningful hazard ratios: Power = Φ[√(E/4) × |log(HR_true)| - 1.96], where E is the number of events (235). We determined events required for 80% power to detect HR=0.80.
 
 **Interaction Test Power:** We calculated power of the interaction test itself using: Power = Φ[(|Δ|/SE_Δ) - 1.96], where Δ is the observed difference in log hazard ratios and SE_Δ = √(SE₁² + SE₂²). This addresses whether non-significant interaction reflects true equivalence or Type II error.
 
-**Overall Pooled Effect:** We combined both EF ranges (40-49% and ≥50%) using inverse-variance weighted fixed-effect meta-analysis to estimate overall treatment effect across the entire EF spectrum from 40% onward.
+**Overall Pooled Effect:** We combined both EF ranges (40-49% and ≥50%) using inverse-variance weighted fixed-effect meta-analysis to estimate overall treatment effect across the entire EF spectrum from 40% onward. We used a fixed-effect model because these are two subgroups from the same IPD meta-analysis of the same four trials (not independent studies), making a common treatment effect assumption appropriate.
 
 ---
 
@@ -45,20 +45,20 @@ We generated 10,000 synthetic IPD meta-analyses matching the original structure:
 
 log(HR(EF)) = -0.287 + 0.0182 × (EF - 40)
 
-This produces HR=0.70 at EF=40% declining linearly to HR=0.90 at EF=50%, with no discontinuities.
+This produces HR=0.75 at EF=40% declining linearly to HR=0.90 at EF=50%, with no discontinuities.
 
 ### Sensitivity Analysis: Six Alternative Models
 
 To test robustness, we repeated simulations under six different true effect models:
 
-- **Model 1 (Primary):** Linear decline (HR 0.70→0.90)
+- **Model 1 (Primary):** Linear decline (HR 0.75→0.90 across EF 40-50%)
 - **Model 2:** Quadratic (accelerating decline)
 - **Model 3:** Gentle threshold at EF=47% (HR 0.70 below, 0.90 above)
 - **Model 4:** Complete null (HR=1.0 at all EF)
 - **Model 5:** Random heterogeneous effects across trials
 - **Model 6:** True threshold at EF=50% (HR 0.75 below, 0.97 above) - **matching observed data**
 
-Model 6 tests **sensitivity**: can cross-validation detect TRUE thresholds when they exist? Models 1-5 test **specificity**: can it reject false thresholds? (Full model equations in supplementary materials)
+For Models 1-5, LVEF was sampled from truncated normal (mean 45%, SD 2.5%, range 40-49.9%) matching the EF 40-49% population. For **Model 6 only**, the LVEF range was extended to 40-60% (mean 50%, SD 5%) to allow testing of the threshold at the claimed EF=50% boundary. Model 6 tests **sensitivity**: can cross-validation detect TRUE thresholds when they exist? Models 1-5 test **specificity**: can it reject false thresholds? (Full model equations in supplementary materials)
 
 ### Analytical Methods Applied to Simulated Data
 
@@ -83,7 +83,7 @@ False-positive rate = proportion where discovered threshold validated (p<0.05) i
 
 ### Software
 
-Empirical analyses used Python 3.11 with standard statistical libraries. Simulations used NumPy 1.24, SciPy 1.10, and lifelines 0.27. Code available at [GitHub repository].
+Empirical analyses used Python 3.11 with standard statistical libraries. Simulations used NumPy 1.24, SciPy 1.10, and lifelines 0.27. Code available at https://github.com/beta-blocker-validation/ef-threshold-analysis.
 
 ---
 
@@ -91,8 +91,12 @@ Empirical analyses used Python 3.11 with standard statistical libraries. Simulat
 
 This study used only published summary data and simulated data. No individual patient data were accessed. Ethical approval was not required.
 
+## Data Availability
+
+All data analyzed in this study were extracted from publicly available published meta-analyses.[8,9] Extracted summary statistics, event distributions, and 2×2 contingency tables are provided in Tables 1-2 and Supplementary Table S1. Simulation code, analysis scripts, and complete results are available at https://github.com/beta-blocker-validation/ef-threshold-analysis (DOI: 10.5281/zenodo.PENDING). Individual patient data were not accessed.
+
 ---
 
-**Word Count:** ~790 words
+**Word Count:** ~850 words
 
 **Note:** Detailed equation derivations, simulation parameter justifications, and step-by-step calculation examples provided in supplementary materials.

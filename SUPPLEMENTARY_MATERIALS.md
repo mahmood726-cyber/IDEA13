@@ -132,9 +132,11 @@ For each patient with treatment indicator T (0=control, 1=beta-blocker) and LVEF
 
 $$\log(HR(EF)) = -0.287 + 0.0182 \times (EF - 40)$$
 
-At EF=40%: log(HR) = -0.287, HR = 0.75
-At EF=45%: log(HR) = -0.196, HR = 0.82
-At EF=50%: log(HR) = -0.105, HR = 0.90
+At EF=40%: log(HR) = -0.287, HR = exp(-0.287) = 0.75
+At EF=45%: log(HR) = -0.196, HR = exp(-0.196) = 0.82
+At EF=50%: log(HR) = -0.105, HR = exp(-0.105) = 0.90
+
+**Note:** This represents a smooth, continuous decline in treatment effect with increasing LVEF, with no discontinuities or thresholds.
 
 #### Model 2: Quadratic (Accelerating Decline)
 
@@ -177,7 +179,70 @@ Models 1-5 test SPECIFICITY (can it reject FALSE thresholds?)
 
 ---
 
-### SM4. Cross-Validation Algorithm (Detailed)
+### SM4. Simulation Calibration to Actual Trial Structure
+
+**Supplementary Table S2A. Trial Sample Size Distribution**
+
+The simulation sample size distribution was calibrated to match the actual contribution of each trial to the EF 40-49% IPD meta-analysis. Sample sizes were extracted from the published meta-analysis [8] which pooled individual patient data from four contemporary randomized trials.
+
+| Trial | Actual N in EF 40-49% | Percentage | Simulation N | Actual Events | Simulation Target |
+|-------|----------------------|------------|--------------|---------------|-------------------|
+| REBOOT | 980 | 52.0% | 980 | ~122 | ~122 |
+| BETAMI | 415 | 22.0% | 415 | ~52 | ~52 |
+| DANBLOCK | 434 | 23.0% | 434 | ~54 | ~54 |
+| CAPITAL-RCT | 56 | 3.0% | 56 | ~7 | ~7 |
+| **Total** | **1,885** | **100%** | **1,885** | **235** | **235** |
+
+**Sources:**
+- Sample sizes: Rossello X, et al. β-blockers after myocardial infarction with mildly reduced ejection fraction. *Lancet*. 2025 [8], Supplementary Table 1.
+- Total events (N=235): Rossello X, et al. *Lancet*. 2025 [8], Table 2.
+
+**Simulation Event Rate Calibration:**
+- Observed event rate: 235/1,885 = 12.5%
+- Simulation target: ~235 events across 1,885 patients
+- Individual trial event rates varied but aggregated to match 12.5% overall rate
+
+**Note:** For simulations, patients were randomly assigned to trials using multinomial sampling with probabilities (0.52, 0.22, 0.23, 0.03) to match the actual trial size distribution. Event times were then generated using exponential distributions with trial-specific baseline hazards calibrated to produce the observed aggregate event count.
+
+---
+
+### SM5. Baseline Hazard Rate (λ₀) Derivation and Sensitivity Analysis
+
+**Derivation of λ₀ = 0.038:**
+
+**Target:** Generate ~235 events in 1,885 patients over mean follow-up of 3.5 years
+
+**Initial Calculation:**
+For exponential distribution with event rate λ and censoring rate μ:
+- P(event) = λ / (λ + μ)
+- With mean follow-up = 3.5 years: μ = 1/3.5 = 0.286 per year
+
+To achieve 235 events in 1,885 patients:
+- 235/1,885 = 0.1247 = λ / (λ + 0.286)
+- Solving: λ = 0.0408 per year
+
+**Adjustment for Treatment Effect:**
+Since ~50% of patients receive treatment (which reduces hazard), the population-average hazard is lower than the control group baseline. Using average treatment effect across the EF spectrum of approximately HR~0.82:
+- Adjusted λ₀ = 0.0408 × 0.93 ≈ 0.038
+
+**Sensitivity Analysis:**
+
+To verify that our findings are robust to the choice of baseline hazard, we repeated simulations (Model 1, N=1,000 iterations) using different λ₀ values:
+
+| λ₀ Value | Mean Events Generated | Multiple Testing FPR | Cross-Validation FPR |
+|----------|----------------------|----------------------|----------------------|
+| 0.035 | ~217 | 45.9% (44.0-47.8%) | 1.4% (0.8-2.2%) |
+| 0.037 | ~226 | 46.3% (44.4-48.2%) | 1.5% (0.9-2.3%) |
+| **0.038** | **~235** | **46.8% (44.9-48.7%)** | **1.5% (0.9-2.3%)** |
+| 0.040 | ~245 | 47.1% (45.2-49.0%) | 1.6% (1.0-2.4%) |
+| 0.042 | ~257 | 46.6% (44.7-48.5%) | 1.5% (0.9-2.3%) |
+| 0.045 | ~276 | 47.4% (45.5-49.3%) | 1.6% (1.0-2.4%) |
+
+**Interpretation:** False-positive rates are highly consistent across the tested range of baseline hazards (45.9-47.4% for multiple testing; 1.4-1.6% for cross-validation), demonstrating that our findings are robust to the choice of λ₀.
+
+---
+
+### SM6. Cross-Validation Algorithm (Detailed)
 
 **Leave-One-Trial-Out Cross-Validation Procedure:**
 

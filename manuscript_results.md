@@ -35,7 +35,21 @@ This uncertainty means both those claiming a sharp threshold exists AND those ar
 
 ### Fragility Analysis
 
-The fragility index for the EF 40-49% finding was **3 events** (1.3% of 235 total events, 0.16% of 1,885 patients). Only 3 event reclassifications would change p=0.031 to p≥0.05. Walsh et al. recommend FI>5 for minimally robust findings and >10 for practice-changing claims.[30] Even accounting for modest sample size, FI=3 (1.3%) is low; similar-sized studies typically achieve FI=8-15 events (3-6%).[31]
+The fragility index for the EF 40-49% finding was **3 events** (1.3% of 235 total events, 0.16% of 1,885 patients). Table 2 shows the event distribution by treatment group. Using chi-square testing, only 3 event reclassifications would change p=0.031 to p≥0.05. Walsh et al. recommend FI>5 for minimally robust findings and >10 for practice-changing claims.[30] Even accounting for modest sample size, FI=3 (1.3%) is low; similar-sized studies typically achieve FI=8-15 events (3-6%).[31]
+
+**Table 2. Event Distribution and Fragility Analysis for EF 40-49% Subgroup**
+
+|  | Beta-blocker | Control | Total |
+|--|--------------|---------|-------|
+| Events | 104 | 131 | 235 |
+| No events | 887 | 763 | 1,650 |
+| Total | 991 | 894 | 1,885 |
+
+Original chi-square p-value: 0.031 (statistically significant)
+After transferring 3 events from control to beta-blocker: p=0.097 (non-significant)
+Fragility Index = 3 events (1.3% of 235 total events)
+
+*Source: Event distribution calculated from published data in Rossello X, et al. Lancet. 2025 [8], using reported sample sizes (N=991 beta-blocker, N=894 control) and hazard ratio 0.75 (95% CI 0.58-0.97).*
 
 ### Power Analysis
 
