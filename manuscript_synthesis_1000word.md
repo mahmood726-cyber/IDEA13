@@ -101,7 +101,7 @@ Results from 10,000 simulated IPD meta-analyses where **no true ejection fractio
 
 **Funding:** None.
 
-**Data Availability:** All analysis code and data are available at [repository URL].
+**Data Availability:** All analysis code and data are available at [repository URL]. Supplementary Bayesian effective sample size analysis available online.
 
 ---
 
